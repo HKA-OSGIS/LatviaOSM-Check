@@ -15,7 +15,7 @@ app = Flask(__name__, template_folder='templates')
 
 ROOT = Path(__file__).resolve().parent
 MAP_HTML = ROOT / 'outputs' / 'maps' / 'interactive_map.html'
-GEOJSON_FILE = ROOT / 'outputs' / 'exports' / 'latvia_municipalities_only.geojson'
+GEOJSON_FILE = ROOT / 'outputs' / 'exports' / 'latvia_municipalities_36_only.geojson'
 CSV_FILE = ROOT / 'outputs' / 'exports' / 'completeness_municipalities.csv'
 
 # Cache for GeoJSON data and hierarchy
