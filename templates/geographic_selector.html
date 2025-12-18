@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geographic Road Data Selector</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+            background: #f5f5f5;
+        }
+        .sidebar {
+            width: 380px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+            min-height: 100%;
+        }
+        .map-container {
+            flex: 1;
+            position: relative;
+            min-width: 0;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 20px;
+            margin-top: 0;
+            color: #333;
+        }
+        h2 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #666;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 13px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .municipality-filter {
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: #fafafa;
+        }
+        .municipality-item {
+            padding: 6px 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+        }
+        .municipality-item:last-child {
+            border-bottom: none;
+        }
+        .municipality-item input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        .municipality-item label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+            flex: 1;
+        }
+        .controls {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        button {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .btn-select-all {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-select-all:hover {
+            background-color: #45a049;
+        }
+        .btn-deselect-all {
+            background-color: #f44336;
+            color: white;
+        }
+        .btn-deselect-all:hover {
+            background-color: #da190b;
+        }
+        .info-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 12px;
+            margin-top: 20px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #1565c0;
+        }
+        .stats {
+            background-color: #f0f0f0;
+            padding: 12px;
+            border-radius: 3px;
+            margin-top: 15px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+        }
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #ddd;
+        }
+        .stat-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .stat-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .stat-value {
+            color: #333;
+            text-align: right;
+        }
+        .comparison-table {
+            width: 100%;
+            font-size: 11px;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .comparison-table th {
+            background-color: #2196F3;
+            color: white;
+            padding: 6px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .comparison-table td {
+            padding: 6px;
+            border-bottom: 1px solid #ddd;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .comparison-table tr:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>🗺️ Road Data Comparison</h1>
+            <p style="color: green; font-size: 12px;">✓ Page loaded successfully</p>
+            
+            <div class="form-group">
+                <h2>Country</h2>
+                <label>Select Country:</label>
+                <select id="country" onchange="onCountryChange()" style="background-color: #e8f5e9;">
+                    <option value="">-- Loading --</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <h2>Municipalities</h2>
+                <label>Select municipalities to compare:</label>
+                <div class="municipality-filter" id="municipalityList">
+                    <p style="padding: 10px; color: #999;">Loading municipalities...</p>
+                </div>
+                <div class="controls">
+                    <button class="btn-select-all" onclick="selectAll()">Select All</button>
+                    <button class="btn-deselect-all" onclick="deselectAll()">Clear All</button>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ Info:</strong> Select municipalities to compare OSM road data. By default, all municipalities are shown.
+            </div>
+
+            <div class="stats">
+                <div class="stat-row">
+                    <span class="stat-label">Selected Municipalities:</span>
+                    <span class="stat-value" id="selectedCount">0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Total Road Length:</span>
+                    <span class="stat-value" id="totalRoads">0 km</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Total Road Segments:</span>
+                    <span class="stat-value" id="totalSegments">0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Avg Completeness:</span>
+                    <span class="stat-value" id="avgCompleteness">—</span>
+                </div>
+            </div>
+
+            <h2>Comparison Data</h2>
+            <div id="comparisonSection" style="max-height: 300px; overflow-y: auto;"></div>
+        </div>
+
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+        console.log('Script loaded');
+        
+        // Initialize map
+        let map = null;
+        try {
+            map = L.map('map').setView([56.879, 24.603], 7);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            }).addTo(map);
+            console.log('Map initialized successfully');
+        } catch (e) {
+            console.error('Map initialization error:', e);
+        }
+
+        let geojsonLayer = null;
+        let allMunicipalities = [];
+        let selectedMunicipalities = new Set();
+        let allGeojsonData = null;
+        let allCsvData = {};
+
+        // Load initial data
+        async function loadInitialData() {
+            try {
+                console.log('Starting data load...');
+                
+                // Load GeoJSON
+                console.log('Fetching GeoJSON...');
+                const geoResponse = await fetch('/api/geojson-data');
+                if (!geoResponse.ok) throw new Error('GeoJSON fetch failed: ' + geoResponse.status);
+                allGeojsonData = await geoResponse.json();
+                console.log('GeoJSON loaded, features:', allGeojsonData.features.length);
+                
+                // Extract all municipalities and load their data
+                const municipalities = new Set();
+                for (const feature of allGeojsonData.features) {
+                    const muniName = feature.properties.municipality_name;
+                    if (muniName) {
+                        municipalities.add(muniName);
+                    }
+                }
+                
+                allMunicipalities = Array.from(municipalities).sort();
+                console.log('Municipalities found:', allMunicipalities.length);
+                
+                // Load comparison data for all municipalities
+                console.log('Fetching CSV data...');
+                const csvResponse = await fetch('/api/csv-data');
+                if (!csvResponse.ok) throw new Error('CSV fetch failed: ' + csvResponse.status);
+                const csvArray = await csvResponse.json();
+                console.log('CSV loaded, records:', csvArray.length);
+                csvArray.forEach(row => {
+                    allCsvData[row.municipality_name] = row;
+                });
+                
+                // Populate country selector
+                const countrySelect = document.getElementById('country');
+                const option = document.createElement('option');
+                option.value = 'Latvia';
+                option.textContent = 'Latvia';
+                option.selected = true;
+                countrySelect.appendChild(option);
+                
+                // Populate municipalities with checkboxes and select all by default
+                console.log('Populating municipalities...');
+                populateMunicipalities();
+                console.log('Data load complete!');
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                const container = document.getElementById('municipalityList');
+                container.innerHTML = '<p style="color: red; font-size: 12px;">ERROR: ' + error.message + '</p>';
+            }
+        }
+
+        // Populate municipalities list
+        function populateMunicipalities() {
+            const container = document.getElementById('municipalityList');
+            container.innerHTML = '';
+            
+            allMunicipalities.forEach((muni, index) => {
+                const div = document.createElement('div');
+                div.className = 'municipality-item';
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `muni-${index}`;
+                checkbox.value = muni;
+                checkbox.checked = true; // Default all checked
+                checkbox.onchange = updateComparison;
+                
+                const label = document.createElement('label');
+                label.htmlFor = `muni-${index}`;
+                label.textContent = muni;
+                
+                div.appendChild(checkbox);
+                div.appendChild(label);
+                container.appendChild(div);
+            });
+            
+            selectedMunicipalities = new Set(allMunicipalities);
+            updateComparison();
+        }
+
+        // Select all municipalities
+        function selectAll() {
+            document.querySelectorAll('.municipality-item input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = true;
+            });
+            selectedMunicipalities = new Set(allMunicipalities);
+            updateComparison();
+        }
+
+        // Deselect all municipalities
+        function deselectAll() {
+            document.querySelectorAll('.municipality-item input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            selectedMunicipalities.clear();
+            updateComparison();
+        }
+
+        // Handle country change
+        function onCountryChange() {
+            const country = document.getElementById('country').value;
+            if (!country) {
+                deselectAll();
+            } else {
+                selectAll();
+            }
+        }
+
+        // Update map and comparison data
+        function updateComparison() {
+            // Get selected municipalities
+            selectedMunicipalities.clear();
+            document.querySelectorAll('.municipality-item input[type="checkbox"]:checked').forEach(checkbox => {
+                selectedMunicipalities.add(checkbox.value);
+            });
+            
+            // Filter GeoJSON features
+            const selectedFeatures = allGeojsonData.features.filter(feature => 
+                selectedMunicipalities.has(feature.properties.municipality_name)
+            );
+            
+            // Update map
+            if (geojsonLayer) {
+                map.removeLayer(geojsonLayer);
+            }
+            
+            if (selectedFeatures.length > 0) {
+                geojsonLayer = L.geoJSON({
+                    type: 'FeatureCollection',
+                    features: selectedFeatures
+                }, {
+                    style: {
+                        color: '#2196F3',
+                        weight: 2,
+                        opacity: 0.7,
+                        fillOpacity: 0.3
+                    }
+                }).addTo(map);
+                
+                // Fit map to bounds
+                const bounds = geojsonLayer.getBounds();
+                if (bounds.isValid()) {
+                    map.fitBounds(bounds, { padding: [50, 50] });
+                }
+            }
+            
+            // Update statistics
+            updateStatistics();
+            updateComparisonTable();
+        }
+
+        // Update statistics
+        function updateStatistics() {
+            try {
+                let totalRoads = 0;
+                let totalSegments = 0;
+                let validCompleteness = [];
+                
+                selectedMunicipalities.forEach(muni => {
+                    if (allCsvData[muni]) {
+                        const data = allCsvData[muni];
+                        totalRoads += parseFloat(data.osm_road_km) || 0;
+                        totalSegments += parseInt(data.num_segments) || 0;
+                        const comp = parseFloat(data.completeness_pct);
+                        if (!isNaN(comp)) {
+                            validCompleteness.push(comp);
+                        }
+                    }
+                });
+                
+                const avgCompleteness = validCompleteness.length > 0 
+                    ? (validCompleteness.reduce((a, b) => a + b, 0) / validCompleteness.length).toFixed(1)
+                    : '-';
+                
+                document.getElementById('selectedCount').textContent = selectedMunicipalities.size;
+                document.getElementById('totalRoads').textContent = totalRoads.toFixed(2) + ' km';
+                document.getElementById('totalSegments').textContent = Math.round(totalSegments).toLocaleString();
+                document.getElementById('avgCompleteness').textContent = 
+                    avgCompleteness === '-' ? '-' : avgCompleteness + '%';
+                    
+                console.log('Statistics updated: ' + selectedMunicipalities.size + ' municipalities selected');
+            } catch (e) {
+                console.error('Error updating statistics:', e);
+            }
+        }
+
+        // Update comparison table
+        function updateComparisonTable() {
+            try {
+                const container = document.getElementById('comparisonSection');
+                
+                if (!container) {
+                    console.warn('Comparison section not found');
+                    return;
+                }
+                
+                if (selectedMunicipalities.size === 0) {
+                    container.innerHTML = '<p style="font-size: 12px; color: #999;">No municipalities selected</p>';
+                    return;
+                }
+                
+                let html = '<table class="comparison-table"><thead><tr>' +
+                    '<th>Municipality</th>' +
+                '<th>Roads (km)</th>' +
+                '<th>Segments</th>' +
+                '<th>Completeness %</th>' +
+                '</tr></thead><tbody>';
+            
+            Array.from(selectedMunicipalities).sort().forEach(muni => {
+                const data = allCsvData[muni] || {};
+                const completeness = data.completeness_pct 
+                    ? parseFloat(data.completeness_pct).toFixed(1) + '%'
+                    : '—';
+                const osmRoads = parseFloat(data.osm_road_km || 0).toFixed(1);
+                const segments = parseInt(data.num_segments) || 0;
+                
+                html += '<tr>' +
+                    `<td>${muni}</td>` +
+                    `<td style="text-align: right;"><strong>${osmRoads} km</strong></td>` +
+                    `<td style="text-align: right;">${segments}</td>` +
+                    `<td style="text-align: center;">${completeness}</td>` +
+                
+                html += '</tbody></table>';
+                container.innerHTML = html;
+            } catch (e) {
+                console.error('Error updating comparison table:', e);
+            }
+        }
+
+        // Initialize on page load
+        if (document.readyState === 'loading') {
+            window.addEventListener('DOMContentLoaded', loadInitialData);
+        } else {
+            loadInitialData();
+        }
+    </script>
+</body>
+</html>
+

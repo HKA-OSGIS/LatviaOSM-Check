@@ -1,0 +1,639 @@
+﻿"Length of state and municipal roads and streets in regions, State cities and municipalities at the end of year (km) by Territorial unit, Types of surface, Indicator and Time period"
+
+"Territorial unit","Types of surface","Indicator","2024"
+"Latvia","Total","Total",57564
+"Latvia","Total","State roads",19898
+"Latvia","Total","Municipal roads",29688
+"Latvia","Total","Municipal streets",7978
+"Latvia","Asphalt and other bituminous surfaces","Total",16595
+"Latvia","Asphalt and other bituminous surfaces","State roads",9895
+"Latvia","Asphalt and other bituminous surfaces","Municipal roads",1783
+"Latvia","Asphalt and other bituminous surfaces","Municipal streets",4918
+"Latvia","Crushed stone and gravel surfaces","Total",40969
+"Latvia","Crushed stone and gravel surfaces","State roads",10003
+"Latvia","Crushed stone and gravel surfaces","Municipal roads",27905
+"Latvia","Crushed stone and gravel surfaces","Municipal streets",3060
+"Riga statistical region (from 01.01.2024.)","Total","Total",4996
+"Riga statistical region (from 01.01.2024.)","Total","State roads",1072
+"Riga statistical region (from 01.01.2024.)","Total","Municipal roads",1247
+"Riga statistical region (from 01.01.2024.)","Total","Municipal streets",2677
+"Riga statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","Total",2684
+"Riga statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","State roads",826
+"Riga statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal roads",165
+"Riga statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal streets",1693
+"Riga statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","Total",2313
+"Riga statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","State roads",246
+"Riga statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","Municipal roads",1082
+"Riga statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","Municipal streets",985
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Total","Total",…
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Total","State roads",…
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Total","Municipal roads",…
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Total","Municipal streets",…
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Asphalt and other bituminous surfaces","Total",…
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Asphalt and other bituminous surfaces","State roads",…
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Asphalt and other bituminous surfaces","Municipal roads",…
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Asphalt and other bituminous surfaces","Municipal streets",…
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Crushed stone and gravel surfaces","Total",…
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Crushed stone and gravel surfaces","State roads",…
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Crushed stone and gravel surfaces","Municipal roads",…
+"Riga statistical region (Riga) (before 01.01.2024.)  ","Crushed stone and gravel surfaces","Municipal streets",…
+"Pierīga statistical region (before 01.01.2024.)","Total","Total",…
+"Pierīga statistical region (before 01.01.2024.)","Total","State roads",…
+"Pierīga statistical region (before 01.01.2024.)","Total","Municipal roads",…
+"Pierīga statistical region (before 01.01.2024.)","Total","Municipal streets",…
+"Pierīga statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","Total",…
+"Pierīga statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","State roads",…
+"Pierīga statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal roads",…
+"Pierīga statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal streets",…
+"Pierīga statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","Total",…
+"Pierīga statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","State roads",…
+"Pierīga statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","Municipal roads",…
+"Pierīga statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","Municipal streets",…
+"Vidzeme statistical region (from 01.01.2024.)","Total","Total",16569
+"Vidzeme statistical region (from 01.01.2024.)","Total","State roads",6261
+"Vidzeme statistical region (from 01.01.2024.)","Total","Municipal roads",8507
+"Vidzeme statistical region (from 01.01.2024.)","Total","Municipal streets",1801
+"Vidzeme statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","Total",4268
+"Vidzeme statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","State roads",2920
+"Vidzeme statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal roads",382
+"Vidzeme statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal streets",966
+"Vidzeme statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","Total",12301
+"Vidzeme statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","State roads",3341
+"Vidzeme statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","Municipal roads",8125
+"Vidzeme statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","Municipal streets",836
+"Vidzeme statistical region (before 01.01.2024.)","Total","Total",…
+"Vidzeme statistical region (before 01.01.2024.)","Total","State roads",…
+"Vidzeme statistical region (before 01.01.2024.)","Total","Municipal roads",…
+"Vidzeme statistical region (before 01.01.2024.)","Total","Municipal streets",…
+"Vidzeme statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","Total",…
+"Vidzeme statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","State roads",…
+"Vidzeme statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal roads",…
+"Vidzeme statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal streets",…
+"Vidzeme statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","Total",…
+"Vidzeme statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","State roads",…
+"Vidzeme statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","Municipal roads",…
+"Vidzeme statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","Municipal streets",…
+"Kurzeme statistical region (from 01.01.2024.)","Total","Total",12897
+"Kurzeme statistical region (from 01.01.2024.)","Total","State roads",4675
+"Kurzeme statistical region (from 01.01.2024.)","Total","Municipal roads",6851
+"Kurzeme statistical region (from 01.01.2024.)","Total","Municipal streets",1371
+"Kurzeme statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","Total",3738
+"Kurzeme statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","State roads",2380
+"Kurzeme statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal roads",448
+"Kurzeme statistical region (from 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal streets",910
+"Kurzeme statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","Total",9159
+"Kurzeme statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","State roads",2295
+"Kurzeme statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","Municipal roads",6403
+"Kurzeme statistical region (from 01.01.2024.)","Crushed stone and gravel surfaces","Municipal streets",461
+"Kurzeme statistical region (before 01.01.2024.)","Total","Total",…
+"Kurzeme statistical region (before 01.01.2024.)","Total","State roads",…
+"Kurzeme statistical region (before 01.01.2024.)","Total","Municipal roads",…
+"Kurzeme statistical region (before 01.01.2024.)","Total","Municipal streets",…
+"Kurzeme statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","Total",…
+"Kurzeme statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","State roads",…
+"Kurzeme statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal roads",…
+"Kurzeme statistical region (before 01.01.2024.)","Asphalt and other bituminous surfaces","Municipal streets",…
+"Kurzeme statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","Total",…
+"Kurzeme statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","State roads",…
+"Kurzeme statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","Municipal roads",…
+"Kurzeme statistical region (before 01.01.2024.)","Crushed stone and gravel surfaces","Municipal streets",…
+"Zemgale statistical region","Total","Total",9424
+"Zemgale statistical region","Total","State roads",3359
+"Zemgale statistical region","Total","Municipal roads",5209
+"Zemgale statistical region","Total","Municipal streets",855
+"Zemgale statistical region","Asphalt and other bituminous surfaces","Total",2610
+"Zemgale statistical region","Asphalt and other bituminous surfaces","State roads",1543
+"Zemgale statistical region","Asphalt and other bituminous surfaces","Municipal roads",559
+"Zemgale statistical region","Asphalt and other bituminous surfaces","Municipal streets",508
+"Zemgale statistical region","Crushed stone and gravel surfaces","Total",6814
+"Zemgale statistical region","Crushed stone and gravel surfaces","State roads",1816
+"Zemgale statistical region","Crushed stone and gravel surfaces","Municipal roads",4651
+"Zemgale statistical region","Crushed stone and gravel surfaces","Municipal streets",348
+"Latgale statistical region","Total","Total",13678
+"Latgale statistical region","Total","State roads",4531
+"Latgale statistical region","Total","Municipal roads",7873
+"Latgale statistical region","Total","Municipal streets",1273
+"Latgale statistical region","Asphalt and other bituminous surfaces","Total",3297
+"Latgale statistical region","Asphalt and other bituminous surfaces","State roads",2226
+"Latgale statistical region","Asphalt and other bituminous surfaces","Municipal roads",229
+"Latgale statistical region","Asphalt and other bituminous surfaces","Municipal streets",842
+"Latgale statistical region","Crushed stone and gravel surfaces","Total",10381
+"Latgale statistical region","Crushed stone and gravel surfaces","State roads",2305
+"Latgale statistical region","Crushed stone and gravel surfaces","Municipal roads",7644
+"Latgale statistical region","Crushed stone and gravel surfaces","Municipal streets",432
+"Riga","Total","Total",1205
+"Riga","Total","State roads",0
+"Riga","Total","Municipal roads",0
+"Riga","Total","Municipal streets",1205
+"Riga","Asphalt and other bituminous surfaces","Total",872
+"Riga","Asphalt and other bituminous surfaces","State roads",0
+"Riga","Asphalt and other bituminous surfaces","Municipal roads",0
+"Riga","Asphalt and other bituminous surfaces","Municipal streets",872
+"Riga","Crushed stone and gravel surfaces","Total",333
+"Riga","Crushed stone and gravel surfaces","State roads",0
+"Riga","Crushed stone and gravel surfaces","Municipal roads",0
+"Riga","Crushed stone and gravel surfaces","Municipal streets",333
+"Daugavpils","Total","Total",333
+"Daugavpils","Total","State roads",2
+"Daugavpils","Total","Municipal roads",0
+"Daugavpils","Total","Municipal streets",331
+"Daugavpils","Asphalt and other bituminous surfaces","Total",223
+"Daugavpils","Asphalt and other bituminous surfaces","State roads",2
+"Daugavpils","Asphalt and other bituminous surfaces","Municipal roads",0
+"Daugavpils","Asphalt and other bituminous surfaces","Municipal streets",221
+"Daugavpils","Crushed stone and gravel surfaces","Total",110
+"Daugavpils","Crushed stone and gravel surfaces","State roads",0
+"Daugavpils","Crushed stone and gravel surfaces","Municipal roads",0
+"Daugavpils","Crushed stone and gravel surfaces","Municipal streets",110
+"Jelgava","Total","Total",270
+"Jelgava","Total","State roads",0
+"Jelgava","Total","Municipal roads",0
+"Jelgava","Total","Municipal streets",270
+"Jelgava","Asphalt and other bituminous surfaces","Total",142
+"Jelgava","Asphalt and other bituminous surfaces","State roads",0
+"Jelgava","Asphalt and other bituminous surfaces","Municipal roads",0
+"Jelgava","Asphalt and other bituminous surfaces","Municipal streets",142
+"Jelgava","Crushed stone and gravel surfaces","Total",128
+"Jelgava","Crushed stone and gravel surfaces","State roads",0
+"Jelgava","Crushed stone and gravel surfaces","Municipal roads",0
+"Jelgava","Crushed stone and gravel surfaces","Municipal streets",128
+"Jūrmala","Total","Total",399
+"Jūrmala","Total","State roads",13
+"Jūrmala","Total","Municipal roads",0
+"Jūrmala","Total","Municipal streets",386
+"Jūrmala","Asphalt and other bituminous surfaces","Total",275
+"Jūrmala","Asphalt and other bituminous surfaces","State roads",13
+"Jūrmala","Asphalt and other bituminous surfaces","Municipal roads",0
+"Jūrmala","Asphalt and other bituminous surfaces","Municipal streets",261
+"Jūrmala","Crushed stone and gravel surfaces","Total",125
+"Jūrmala","Crushed stone and gravel surfaces","State roads",0
+"Jūrmala","Crushed stone and gravel surfaces","Municipal roads",0
+"Jūrmala","Crushed stone and gravel surfaces","Municipal streets",125
+"Liepāja","Total","Total",271
+"Liepāja","Total","State roads",0
+"Liepāja","Total","Municipal roads",0
+"Liepāja","Total","Municipal streets",270
+"Liepāja","Asphalt and other bituminous surfaces","Total",200
+"Liepāja","Asphalt and other bituminous surfaces","State roads",0
+"Liepāja","Asphalt and other bituminous surfaces","Municipal roads",0
+"Liepāja","Asphalt and other bituminous surfaces","Municipal streets",200
+"Liepāja","Crushed stone and gravel surfaces","Total",70
+"Liepāja","Crushed stone and gravel surfaces","State roads",0
+"Liepāja","Crushed stone and gravel surfaces","Municipal roads",0
+"Liepāja","Crushed stone and gravel surfaces","Municipal streets",70
+"Rēzekne","Total","Total",106
+"Rēzekne","Total","State roads",0
+"Rēzekne","Total","Municipal roads",0
+"Rēzekne","Total","Municipal streets",106
+"Rēzekne","Asphalt and other bituminous surfaces","Total",75
+"Rēzekne","Asphalt and other bituminous surfaces","State roads",0
+"Rēzekne","Asphalt and other bituminous surfaces","Municipal roads",0
+"Rēzekne","Asphalt and other bituminous surfaces","Municipal streets",75
+"Rēzekne","Crushed stone and gravel surfaces","Total",31
+"Rēzekne","Crushed stone and gravel surfaces","State roads",0
+"Rēzekne","Crushed stone and gravel surfaces","Municipal roads",0
+"Rēzekne","Crushed stone and gravel surfaces","Municipal streets",31
+"Ventspils","Total","Total",193
+"Ventspils","Total","State roads",0
+"Ventspils","Total","Municipal roads",0
+"Ventspils","Total","Municipal streets",193
+"Ventspils","Asphalt and other bituminous surfaces","Total",168
+"Ventspils","Asphalt and other bituminous surfaces","State roads",0
+"Ventspils","Asphalt and other bituminous surfaces","Municipal roads",0
+"Ventspils","Asphalt and other bituminous surfaces","Municipal streets",168
+"Ventspils","Crushed stone and gravel surfaces","Total",25
+"Ventspils","Crushed stone and gravel surfaces","State roads",0
+"Ventspils","Crushed stone and gravel surfaces","Municipal roads",0
+"Ventspils","Crushed stone and gravel surfaces","Municipal streets",25
+"Aizkraukle municipality","Total","Total",1657
+"Aizkraukle municipality","Total","State roads",625
+"Aizkraukle municipality","Total","Municipal roads",851
+"Aizkraukle municipality","Total","Municipal streets",182
+"Aizkraukle municipality","Asphalt and other bituminous surfaces","Total",470
+"Aizkraukle municipality","Asphalt and other bituminous surfaces","State roads",328
+"Aizkraukle municipality","Asphalt and other bituminous surfaces","Municipal roads",32
+"Aizkraukle municipality","Asphalt and other bituminous surfaces","Municipal streets",110
+"Aizkraukle municipality","Crushed stone and gravel surfaces","Total",1188
+"Aizkraukle municipality","Crushed stone and gravel surfaces","State roads",297
+"Aizkraukle municipality","Crushed stone and gravel surfaces","Municipal roads",819
+"Aizkraukle municipality","Crushed stone and gravel surfaces","Municipal streets",72
+"Alūksne municipality","Total","Total",1187
+"Alūksne municipality","Total","State roads",459
+"Alūksne municipality","Total","Municipal roads",659
+"Alūksne municipality","Total","Municipal streets",69
+"Alūksne municipality","Asphalt and other bituminous surfaces","Total",267
+"Alūksne municipality","Asphalt and other bituminous surfaces","State roads",181
+"Alūksne municipality","Asphalt and other bituminous surfaces","Municipal roads",51
+"Alūksne municipality","Asphalt and other bituminous surfaces","Municipal streets",35
+"Alūksne municipality","Crushed stone and gravel surfaces","Total",919
+"Alūksne municipality","Crushed stone and gravel surfaces","State roads",277
+"Alūksne municipality","Crushed stone and gravel surfaces","Municipal roads",608
+"Alūksne municipality","Crushed stone and gravel surfaces","Municipal streets",34
+"Augšdaugava municipality","Total","Total",2817
+"Augšdaugava municipality","Total","State roads",881
+"Augšdaugava municipality","Total","Municipal roads",1791
+"Augšdaugava municipality","Total","Municipal streets",145
+"Augšdaugava municipality","Asphalt and other bituminous surfaces","Total",643
+"Augšdaugava municipality","Asphalt and other bituminous surfaces","State roads",475
+"Augšdaugava municipality","Asphalt and other bituminous surfaces","Municipal roads",72
+"Augšdaugava municipality","Asphalt and other bituminous surfaces","Municipal streets",96
+"Augšdaugava municipality","Crushed stone and gravel surfaces","Total",2173
+"Augšdaugava municipality","Crushed stone and gravel surfaces","State roads",406
+"Augšdaugava municipality","Crushed stone and gravel surfaces","Municipal roads",1718
+"Augšdaugava municipality","Crushed stone and gravel surfaces","Municipal streets",49
+"Ādaži municipality","Total","Total",398
+"Ādaži municipality","Total","State roads",55
+"Ādaži municipality","Total","Municipal roads",88
+"Ādaži municipality","Total","Municipal streets",255
+"Ādaži municipality","Asphalt and other bituminous surfaces","Total",199
+"Ādaži municipality","Asphalt and other bituminous surfaces","State roads",51
+"Ādaži municipality","Asphalt and other bituminous surfaces","Municipal roads",26
+"Ādaži municipality","Asphalt and other bituminous surfaces","Municipal streets",122
+"Ādaži municipality","Crushed stone and gravel surfaces","Total",199
+"Ādaži municipality","Crushed stone and gravel surfaces","State roads",4
+"Ādaži municipality","Crushed stone and gravel surfaces","Municipal roads",61
+"Ādaži municipality","Crushed stone and gravel surfaces","Municipal streets",134
+"Balvi municipality","Total","Total",1597
+"Balvi municipality","Total","State roads",563
+"Balvi municipality","Total","Municipal roads",916
+"Balvi municipality","Total","Municipal streets",118
+"Balvi municipality","Asphalt and other bituminous surfaces","Total",363
+"Balvi municipality","Asphalt and other bituminous surfaces","State roads",278
+"Balvi municipality","Asphalt and other bituminous surfaces","Municipal roads",19
+"Balvi municipality","Asphalt and other bituminous surfaces","Municipal streets",66
+"Balvi municipality","Crushed stone and gravel surfaces","Total",1235
+"Balvi municipality","Crushed stone and gravel surfaces","State roads",285
+"Balvi municipality","Crushed stone and gravel surfaces","Municipal roads",897
+"Balvi municipality","Crushed stone and gravel surfaces","Municipal streets",52
+"Bauska municipality","Total","Total",2014
+"Bauska municipality","Total","State roads",792
+"Bauska municipality","Total","Municipal roads",1129
+"Bauska municipality","Total","Municipal streets",93
+"Bauska municipality","Asphalt and other bituminous surfaces","Total",505
+"Bauska municipality","Asphalt and other bituminous surfaces","State roads",290
+"Bauska municipality","Asphalt and other bituminous surfaces","Municipal roads",150
+"Bauska municipality","Asphalt and other bituminous surfaces","Municipal streets",64
+"Bauska municipality","Crushed stone and gravel surfaces","Total",1510
+"Bauska municipality","Crushed stone and gravel surfaces","State roads",502
+"Bauska municipality","Crushed stone and gravel surfaces","Municipal roads",979
+"Bauska municipality","Crushed stone and gravel surfaces","Municipal streets",29
+"Cēsis municipality","Total","Total",2670
+"Cēsis municipality","Total","State roads",978
+"Cēsis municipality","Total","Municipal roads",1427
+"Cēsis municipality","Total","Municipal streets",266
+"Cēsis municipality","Asphalt and other bituminous surfaces","Total",569
+"Cēsis municipality","Asphalt and other bituminous surfaces","State roads",353
+"Cēsis municipality","Asphalt and other bituminous surfaces","Municipal roads",71
+"Cēsis municipality","Asphalt and other bituminous surfaces","Municipal streets",144
+"Cēsis municipality","Crushed stone and gravel surfaces","Total",2102
+"Cēsis municipality","Crushed stone and gravel surfaces","State roads",625
+"Cēsis municipality","Crushed stone and gravel surfaces","Municipal roads",1355
+"Cēsis municipality","Crushed stone and gravel surfaces","Municipal streets",121
+"Dienvidkurzeme municipality","Total","Total",3078
+"Dienvidkurzeme municipality","Total","State roads",935
+"Dienvidkurzeme municipality","Total","Municipal roads",1881
+"Dienvidkurzeme municipality","Total","Municipal streets",262
+"Dienvidkurzeme municipality","Asphalt and other bituminous surfaces","Total",623
+"Dienvidkurzeme municipality","Asphalt and other bituminous surfaces","State roads",416
+"Dienvidkurzeme municipality","Asphalt and other bituminous surfaces","Municipal roads",80
+"Dienvidkurzeme municipality","Asphalt and other bituminous surfaces","Municipal streets",126
+"Dienvidkurzeme municipality","Crushed stone and gravel surfaces","Total",2456
+"Dienvidkurzeme municipality","Crushed stone and gravel surfaces","State roads",519
+"Dienvidkurzeme municipality","Crushed stone and gravel surfaces","Municipal roads",1801
+"Dienvidkurzeme municipality","Crushed stone and gravel surfaces","Municipal streets",136
+"Dobele municipality","Total","Total",1529
+"Dobele municipality","Total","State roads",581
+"Dobele municipality","Total","Municipal roads",872
+"Dobele municipality","Total","Municipal streets",75
+"Dobele municipality","Asphalt and other bituminous surfaces","Total",442
+"Dobele municipality","Asphalt and other bituminous surfaces","State roads",281
+"Dobele municipality","Asphalt and other bituminous surfaces","Municipal roads",109
+"Dobele municipality","Asphalt and other bituminous surfaces","Municipal streets",52
+"Dobele municipality","Crushed stone and gravel surfaces","Total",1086
+"Dobele municipality","Crushed stone and gravel surfaces","State roads",300
+"Dobele municipality","Crushed stone and gravel surfaces","Municipal roads",763
+"Dobele municipality","Crushed stone and gravel surfaces","Municipal streets",23
+"Gulbene municipality","Total","Total",1380
+"Gulbene municipality","Total","State roads",574
+"Gulbene municipality","Total","Municipal roads",697
+"Gulbene municipality","Total","Municipal streets",109
+"Gulbene municipality","Asphalt and other bituminous surfaces","Total",305
+"Gulbene municipality","Asphalt and other bituminous surfaces","State roads",241
+"Gulbene municipality","Asphalt and other bituminous surfaces","Municipal roads",8
+"Gulbene municipality","Asphalt and other bituminous surfaces","Municipal streets",57
+"Gulbene municipality","Crushed stone and gravel surfaces","Total",1074
+"Gulbene municipality","Crushed stone and gravel surfaces","State roads",333
+"Gulbene municipality","Crushed stone and gravel surfaces","Municipal roads",689
+"Gulbene municipality","Crushed stone and gravel surfaces","Municipal streets",52
+"Jelgava municipality","Total","Total",1552
+"Jelgava municipality","Total","State roads",547
+"Jelgava municipality","Total","Municipal roads",1005
+"Jelgava municipality","Total","Municipal streets",0
+"Jelgava municipality","Asphalt and other bituminous surfaces","Total",572
+"Jelgava municipality","Asphalt and other bituminous surfaces","State roads",334
+"Jelgava municipality","Asphalt and other bituminous surfaces","Municipal roads",237
+"Jelgava municipality","Asphalt and other bituminous surfaces","Municipal streets",0
+"Jelgava municipality","Crushed stone and gravel surfaces","Total",981
+"Jelgava municipality","Crushed stone and gravel surfaces","State roads",213
+"Jelgava municipality","Crushed stone and gravel surfaces","Municipal roads",768
+"Jelgava municipality","Crushed stone and gravel surfaces","Municipal streets",0
+"Jēkabpils municipality","Total","Total",2401
+"Jēkabpils municipality","Total","State roads",814
+"Jēkabpils municipality","Total","Municipal roads",1352
+"Jēkabpils municipality","Total","Municipal streets",235
+"Jēkabpils municipality","Asphalt and other bituminous surfaces","Total",479
+"Jēkabpils municipality","Asphalt and other bituminous surfaces","State roads",309
+"Jēkabpils municipality","Asphalt and other bituminous surfaces","Municipal roads",30
+"Jēkabpils municipality","Asphalt and other bituminous surfaces","Municipal streets",140
+"Jēkabpils municipality","Crushed stone and gravel surfaces","Total",1921
+"Jēkabpils municipality","Crushed stone and gravel surfaces","State roads",504
+"Jēkabpils municipality","Crushed stone and gravel surfaces","Municipal roads",1322
+"Jēkabpils municipality","Crushed stone and gravel surfaces","Municipal streets",95
+"Krāslava municipality","Total","Total",2183
+"Krāslava municipality","Total","State roads",800
+"Krāslava municipality","Total","Municipal roads",1250
+"Krāslava municipality","Total","Municipal streets",133
+"Krāslava municipality","Asphalt and other bituminous surfaces","Total",434
+"Krāslava municipality","Asphalt and other bituminous surfaces","State roads",326
+"Krāslava municipality","Asphalt and other bituminous surfaces","Municipal roads",27
+"Krāslava municipality","Asphalt and other bituminous surfaces","Municipal streets",81
+"Krāslava municipality","Crushed stone and gravel surfaces","Total",1749
+"Krāslava municipality","Crushed stone and gravel surfaces","State roads",474
+"Krāslava municipality","Crushed stone and gravel surfaces","Municipal roads",1223
+"Krāslava municipality","Crushed stone and gravel surfaces","Municipal streets",52
+"Kuldīga municipality","Total","Total",1973
+"Kuldīga municipality","Total","State roads",707
+"Kuldīga municipality","Total","Municipal roads",1111
+"Kuldīga municipality","Total","Municipal streets",155
+"Kuldīga municipality","Asphalt and other bituminous surfaces","Total",536
+"Kuldīga municipality","Asphalt and other bituminous surfaces","State roads",382
+"Kuldīga municipality","Asphalt and other bituminous surfaces","Municipal roads",53
+"Kuldīga municipality","Asphalt and other bituminous surfaces","Municipal streets",102
+"Kuldīga municipality","Crushed stone and gravel surfaces","Total",1436
+"Kuldīga municipality","Crushed stone and gravel surfaces","State roads",325
+"Kuldīga municipality","Crushed stone and gravel surfaces","Municipal roads",1058
+"Kuldīga municipality","Crushed stone and gravel surfaces","Municipal streets",53
+"Ķekava municipality","Total","Total",514
+"Ķekava municipality","Total","State roads",179
+"Ķekava municipality","Total","Municipal roads",168
+"Ķekava municipality","Total","Municipal streets",167
+"Ķekava municipality","Asphalt and other bituminous surfaces","Total",215
+"Ķekava municipality","Asphalt and other bituminous surfaces","State roads",142
+"Ķekava municipality","Asphalt and other bituminous surfaces","Municipal roads",18
+"Ķekava municipality","Asphalt and other bituminous surfaces","Municipal streets",55
+"Ķekava municipality","Crushed stone and gravel surfaces","Total",300
+"Ķekava municipality","Crushed stone and gravel surfaces","State roads",37
+"Ķekava municipality","Crushed stone and gravel surfaces","Municipal roads",150
+"Ķekava municipality","Crushed stone and gravel surfaces","Municipal streets",113
+"Limbaži municipality","Total","Total",2272
+"Limbaži municipality","Total","State roads",729
+"Limbaži municipality","Total","Municipal roads",1264
+"Limbaži municipality","Total","Municipal streets",279
+"Limbaži municipality","Asphalt and other bituminous surfaces","Total",513
+"Limbaži municipality","Asphalt and other bituminous surfaces","State roads",383
+"Limbaži municipality","Asphalt and other bituminous surfaces","Municipal roads",30
+"Limbaži municipality","Asphalt and other bituminous surfaces","Municipal streets",100
+"Limbaži municipality","Crushed stone and gravel surfaces","Total",1759
+"Limbaži municipality","Crushed stone and gravel surfaces","State roads",346
+"Limbaži municipality","Crushed stone and gravel surfaces","Municipal roads",1234
+"Limbaži municipality","Crushed stone and gravel surfaces","Municipal streets",179
+"Līvāni municipality","Total","Total",446
+"Līvāni municipality","Total","State roads",175
+"Līvāni municipality","Total","Municipal roads",217
+"Līvāni municipality","Total","Municipal streets",54
+"Līvāni municipality","Asphalt and other bituminous surfaces","Total",166
+"Līvāni municipality","Asphalt and other bituminous surfaces","State roads",110
+"Līvāni municipality","Asphalt and other bituminous surfaces","Municipal roads",9
+"Līvāni municipality","Asphalt and other bituminous surfaces","Municipal streets",47
+"Līvāni municipality","Crushed stone and gravel surfaces","Total",280
+"Līvāni municipality","Crushed stone and gravel surfaces","State roads",64
+"Līvāni municipality","Crushed stone and gravel surfaces","Municipal roads",208
+"Līvāni municipality","Crushed stone and gravel surfaces","Municipal streets",8
+"Ludza municipality","Total","Total",2160
+"Ludza municipality","Total","State roads",781
+"Ludza municipality","Total","Municipal roads",1219
+"Ludza municipality","Total","Municipal streets",159
+"Ludza municipality","Asphalt and other bituminous surfaces","Total",435
+"Ludza municipality","Asphalt and other bituminous surfaces","State roads",303
+"Ludza municipality","Asphalt and other bituminous surfaces","Municipal roads",21
+"Ludza municipality","Asphalt and other bituminous surfaces","Municipal streets",111
+"Ludza municipality","Crushed stone and gravel surfaces","Total",1725
+"Ludza municipality","Crushed stone and gravel surfaces","State roads",478
+"Ludza municipality","Crushed stone and gravel surfaces","Municipal roads",1198
+"Ludza municipality","Crushed stone and gravel surfaces","Municipal streets",48
+"Madona municipality","Total","Total",2464
+"Madona municipality","Total","State roads",923
+"Madona municipality","Total","Municipal roads",1367
+"Madona municipality","Total","Municipal streets",174
+"Madona municipality","Asphalt and other bituminous surfaces","Total",520
+"Madona municipality","Asphalt and other bituminous surfaces","State roads",354
+"Madona municipality","Asphalt and other bituminous surfaces","Municipal roads",52
+"Madona municipality","Asphalt and other bituminous surfaces","Municipal streets",115
+"Madona municipality","Crushed stone and gravel surfaces","Total",1945
+"Madona municipality","Crushed stone and gravel surfaces","State roads",569
+"Madona municipality","Crushed stone and gravel surfaces","Municipal roads",1316
+"Madona municipality","Crushed stone and gravel surfaces","Municipal streets",60
+"Mārupe municipality","Total","Total",413
+"Mārupe municipality","Total","State roads",99
+"Mārupe municipality","Total","Municipal roads",163
+"Mārupe municipality","Total","Municipal streets",151
+"Mārupe municipality","Asphalt and other bituminous surfaces","Total",256
+"Mārupe municipality","Asphalt and other bituminous surfaces","State roads",95
+"Mārupe municipality","Asphalt and other bituminous surfaces","Municipal roads",46
+"Mārupe municipality","Asphalt and other bituminous surfaces","Municipal streets",115
+"Mārupe municipality","Crushed stone and gravel surfaces","Total",157
+"Mārupe municipality","Crushed stone and gravel surfaces","State roads",4
+"Mārupe municipality","Crushed stone and gravel surfaces","Municipal roads",117
+"Mārupe municipality","Crushed stone and gravel surfaces","Municipal streets",36
+"Ogre municipality","Total","Total",2039
+"Ogre municipality","Total","State roads",680
+"Ogre municipality","Total","Municipal roads",1030
+"Ogre municipality","Total","Municipal streets",329
+"Ogre municipality","Asphalt and other bituminous surfaces","Total",610
+"Ogre municipality","Asphalt and other bituminous surfaces","State roads",403
+"Ogre municipality","Asphalt and other bituminous surfaces","Municipal roads",33
+"Ogre municipality","Asphalt and other bituminous surfaces","Municipal streets",174
+"Ogre municipality","Crushed stone and gravel surfaces","Total",1430
+"Ogre municipality","Crushed stone and gravel surfaces","State roads",277
+"Ogre municipality","Crushed stone and gravel surfaces","Municipal roads",997
+"Ogre municipality","Crushed stone and gravel surfaces","Municipal streets",155
+"Olaine municipality","Total","Total",201
+"Olaine municipality","Total","State roads",93
+"Olaine municipality","Total","Municipal roads",70
+"Olaine municipality","Total","Municipal streets",38
+"Olaine municipality","Asphalt and other bituminous surfaces","Total",128
+"Olaine municipality","Asphalt and other bituminous surfaces","State roads",71
+"Olaine municipality","Asphalt and other bituminous surfaces","Municipal roads",26
+"Olaine municipality","Asphalt and other bituminous surfaces","Municipal streets",31
+"Olaine municipality","Crushed stone and gravel surfaces","Total",74
+"Olaine municipality","Crushed stone and gravel surfaces","State roads",23
+"Olaine municipality","Crushed stone and gravel surfaces","Municipal roads",44
+"Olaine municipality","Crushed stone and gravel surfaces","Municipal streets",7
+"Preiļi municipality","Total","Total",1385
+"Preiļi municipality","Total","State roads",471
+"Preiļi municipality","Total","Municipal roads",835
+"Preiļi municipality","Total","Municipal streets",80
+"Preiļi municipality","Asphalt and other bituminous surfaces","Total",345
+"Preiļi municipality","Asphalt and other bituminous surfaces","State roads",253
+"Preiļi municipality","Asphalt and other bituminous surfaces","Municipal roads",28
+"Preiļi municipality","Asphalt and other bituminous surfaces","Municipal streets",64
+"Preiļi municipality","Crushed stone and gravel surfaces","Total",1041
+"Preiļi municipality","Crushed stone and gravel surfaces","State roads",218
+"Preiļi municipality","Crushed stone and gravel surfaces","Municipal roads",807
+"Preiļi municipality","Crushed stone and gravel surfaces","Municipal streets",16
+"Rēzekne municipality","Total","Total",2651
+"Rēzekne municipality","Total","State roads",858
+"Rēzekne municipality","Total","Municipal roads",1647
+"Rēzekne municipality","Total","Municipal streets",147
+"Rēzekne municipality","Asphalt and other bituminous surfaces","Total",613
+"Rēzekne municipality","Asphalt and other bituminous surfaces","State roads",478
+"Rēzekne municipality","Asphalt and other bituminous surfaces","Municipal roads",53
+"Rēzekne municipality","Asphalt and other bituminous surfaces","Municipal streets",81
+"Rēzekne municipality","Crushed stone and gravel surfaces","Total",2038
+"Rēzekne municipality","Crushed stone and gravel surfaces","State roads",379
+"Rēzekne municipality","Crushed stone and gravel surfaces","Municipal roads",1593
+"Rēzekne municipality","Crushed stone and gravel surfaces","Municipal streets",66
+"Ropaži municipality","Total","Total",613
+"Ropaži municipality","Total","State roads",193
+"Ropaži municipality","Total","Municipal roads",228
+"Ropaži municipality","Total","Municipal streets",192
+"Ropaži municipality","Asphalt and other bituminous surfaces","Total",254
+"Ropaži municipality","Asphalt and other bituminous surfaces","State roads",155
+"Ropaži municipality","Asphalt and other bituminous surfaces","Municipal roads",11
+"Ropaži municipality","Asphalt and other bituminous surfaces","Municipal streets",88
+"Ropaži municipality","Crushed stone and gravel surfaces","Total",358
+"Ropaži municipality","Crushed stone and gravel surfaces","State roads",37
+"Ropaži municipality","Crushed stone and gravel surfaces","Municipal roads",217
+"Ropaži municipality","Crushed stone and gravel surfaces","Municipal streets",104
+"Salaspils municipality","Total","Total",180
+"Salaspils municipality","Total","State roads",42
+"Salaspils municipality","Total","Municipal roads",64
+"Salaspils municipality","Total","Municipal streets",74
+"Salaspils municipality","Asphalt and other bituminous surfaces","Total",113
+"Salaspils municipality","Asphalt and other bituminous surfaces","State roads",41
+"Salaspils municipality","Asphalt and other bituminous surfaces","Municipal roads",16
+"Salaspils municipality","Asphalt and other bituminous surfaces","Municipal streets",57
+"Salaspils municipality","Crushed stone and gravel surfaces","Total",67
+"Salaspils municipality","Crushed stone and gravel surfaces","State roads",1
+"Salaspils municipality","Crushed stone and gravel surfaces","Municipal roads",48
+"Salaspils municipality","Crushed stone and gravel surfaces","Municipal streets",18
+"Saldus municipality","Total","Total",1603
+"Saldus municipality","Total","State roads",595
+"Saldus municipality","Total","Municipal roads",885
+"Saldus municipality","Total","Municipal streets",123
+"Saldus municipality","Asphalt and other bituminous surfaces","Total",424
+"Saldus municipality","Asphalt and other bituminous surfaces","State roads",279
+"Saldus municipality","Asphalt and other bituminous surfaces","Municipal roads",44
+"Saldus municipality","Asphalt and other bituminous surfaces","Municipal streets",101
+"Saldus municipality","Crushed stone and gravel surfaces","Total",1179
+"Saldus municipality","Crushed stone and gravel surfaces","State roads",316
+"Saldus municipality","Crushed stone and gravel surfaces","Municipal roads",842
+"Saldus municipality","Crushed stone and gravel surfaces","Municipal streets",22
+"Saulkrasti municipality","Total","Total",386
+"Saulkrasti municipality","Total","State roads",77
+"Saulkrasti municipality","Total","Municipal roads",218
+"Saulkrasti municipality","Total","Municipal streets",91
+"Saulkrasti municipality","Asphalt and other bituminous surfaces","Total",136
+"Saulkrasti municipality","Asphalt and other bituminous surfaces","State roads",69
+"Saulkrasti municipality","Asphalt and other bituminous surfaces","Municipal roads",30
+"Saulkrasti municipality","Asphalt and other bituminous surfaces","Municipal streets",38
+"Saulkrasti municipality","Crushed stone and gravel surfaces","Total",249
+"Saulkrasti municipality","Crushed stone and gravel surfaces","State roads",8
+"Saulkrasti municipality","Crushed stone and gravel surfaces","Municipal roads",188
+"Saulkrasti municipality","Crushed stone and gravel surfaces","Municipal streets",53
+"Sigulda municipality","Total","Total",1072
+"Sigulda municipality","Total","State roads",398
+"Sigulda municipality","Total","Municipal roads",466
+"Sigulda municipality","Total","Municipal streets",208
+"Sigulda municipality","Asphalt and other bituminous surfaces","Total",372
+"Sigulda municipality","Asphalt and other bituminous surfaces","State roads",258
+"Sigulda municipality","Asphalt and other bituminous surfaces","Municipal roads",21
+"Sigulda municipality","Asphalt and other bituminous surfaces","Municipal streets",93
+"Sigulda municipality","Crushed stone and gravel surfaces","Total",700
+"Sigulda municipality","Crushed stone and gravel surfaces","State roads",140
+"Sigulda municipality","Crushed stone and gravel surfaces","Municipal roads",445
+"Sigulda municipality","Crushed stone and gravel surfaces","Municipal streets",116
+"Smiltene municipality","Total","Total",1371
+"Smiltene municipality","Total","State roads",633
+"Smiltene municipality","Total","Municipal roads",619
+"Smiltene municipality","Total","Municipal streets",119
+"Smiltene municipality","Asphalt and other bituminous surfaces","Total",409
+"Smiltene municipality","Asphalt and other bituminous surfaces","State roads",305
+"Smiltene municipality","Asphalt and other bituminous surfaces","Municipal roads",27
+"Smiltene municipality","Asphalt and other bituminous surfaces","Municipal streets",76
+"Smiltene municipality","Crushed stone and gravel surfaces","Total",962
+"Smiltene municipality","Crushed stone and gravel surfaces","State roads",327
+"Smiltene municipality","Crushed stone and gravel surfaces","Municipal roads",592
+"Smiltene municipality","Crushed stone and gravel surfaces","Municipal streets",43
+"Talsi municipality","Total","Total",2148
+"Talsi municipality","Total","State roads",939
+"Talsi municipality","Total","Municipal roads",999
+"Talsi municipality","Total","Municipal streets",210
+"Talsi municipality","Asphalt and other bituminous surfaces","Total",674
+"Talsi municipality","Asphalt and other bituminous surfaces","State roads",490
+"Talsi municipality","Asphalt and other bituminous surfaces","Municipal roads",67
+"Talsi municipality","Asphalt and other bituminous surfaces","Municipal streets",117
+"Talsi municipality","Crushed stone and gravel surfaces","Total",1473
+"Talsi municipality","Crushed stone and gravel surfaces","State roads",449
+"Talsi municipality","Crushed stone and gravel surfaces","Municipal roads",931
+"Talsi municipality","Crushed stone and gravel surfaces","Municipal streets",93
+"Tukums municipality","Total","Total",2175
+"Tukums municipality","Total","State roads",841
+"Tukums municipality","Total","Municipal roads",1192
+"Tukums municipality","Total","Municipal streets",142
+"Tukums municipality","Asphalt and other bituminous surfaces","Total",716
+"Tukums municipality","Asphalt and other bituminous surfaces","State roads",480
+"Tukums municipality","Asphalt and other bituminous surfaces","Municipal roads",147
+"Tukums municipality","Asphalt and other bituminous surfaces","Municipal streets",88
+"Tukums municipality","Crushed stone and gravel surfaces","Total",1459
+"Tukums municipality","Crushed stone and gravel surfaces","State roads",361
+"Tukums municipality","Crushed stone and gravel surfaces","Municipal roads",1045
+"Tukums municipality","Crushed stone and gravel surfaces","Municipal streets",54
+"Valka municipality","Total","Total",492
+"Valka municipality","Total","State roads",222
+"Valka municipality","Total","Municipal roads",221
+"Valka municipality","Total","Municipal streets",49
+"Valka municipality","Asphalt and other bituminous surfaces","Total",151
+"Valka municipality","Asphalt and other bituminous surfaces","State roads",103
+"Valka municipality","Asphalt and other bituminous surfaces","Municipal roads",7
+"Valka municipality","Asphalt and other bituminous surfaces","Municipal streets",41
+"Valka municipality","Crushed stone and gravel surfaces","Total",341
+"Valka municipality","Crushed stone and gravel surfaces","State roads",119
+"Valka municipality","Crushed stone and gravel surfaces","Municipal roads",215
+"Valka municipality","Crushed stone and gravel surfaces","Municipal streets",8
+"Valmiera municipality","Total","Total",2075
+"Valmiera municipality","Total","State roads",932
+"Valmiera municipality","Total","Municipal roads",856
+"Valmiera municipality","Total","Municipal streets",287
+"Valmiera municipality","Asphalt and other bituminous surfaces","Total",719
+"Valmiera municipality","Asphalt and other bituminous surfaces","State roads",492
+"Valmiera municipality","Asphalt and other bituminous surfaces","Municipal roads",62
+"Valmiera municipality","Asphalt and other bituminous surfaces","Municipal streets",165
+"Valmiera municipality","Crushed stone and gravel surfaces","Total",1356
+"Valmiera municipality","Crushed stone and gravel surfaces","State roads",440
+"Valmiera municipality","Crushed stone and gravel surfaces","Municipal roads",794
+"Valmiera municipality","Crushed stone and gravel surfaces","Municipal streets",122
+"Varakļāni municipality","Total","Total",234
+"Varakļāni municipality","Total","State roads",55
+"Varakļāni municipality","Total","Municipal roads",149
+"Varakļāni municipality","Total","Municipal streets",29
+"Varakļāni municipality","Asphalt and other bituminous surfaces","Total",69
+"Varakļāni municipality","Asphalt and other bituminous surfaces","State roads",35
+"Varakļāni municipality","Asphalt and other bituminous surfaces","Municipal roads",12
+"Varakļāni municipality","Asphalt and other bituminous surfaces","Municipal streets",21
+"Varakļāni municipality","Crushed stone and gravel surfaces","Total",165
+"Varakļāni municipality","Crushed stone and gravel surfaces","State roads",20
+"Varakļāni municipality","Crushed stone and gravel surfaces","Municipal roads",137
+"Varakļāni municipality","Crushed stone and gravel surfaces","Municipal streets",8
+"Ventspils municipality","Total","Total",1455
+"Ventspils municipality","Total","State roads",657
+"Ventspils municipality","Total","Municipal roads",783
+"Ventspils municipality","Total","Municipal streets",16
+"Ventspils municipality","Asphalt and other bituminous surfaces","Total",395
+"Ventspils municipality","Asphalt and other bituminous surfaces","State roads",332
+"Ventspils municipality","Asphalt and other bituminous surfaces","Municipal roads",57
+"Ventspils municipality","Asphalt and other bituminous surfaces","Municipal streets",7
+"Ventspils municipality","Crushed stone and gravel surfaces","Total",1060
+"Ventspils municipality","Crushed stone and gravel surfaces","State roads",325
+"Ventspils municipality","Crushed stone and gravel surfaces","Municipal roads",726
+"Ventspils municipality","Crushed stone and gravel surfaces","Municipal streets",9

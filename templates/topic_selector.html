@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latvia OSM Statistics - Topic Selector</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: #f5f5f5;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 320px;
+            background: white;
+            border-right: 2px solid #ddd;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+        }
+        .map-container {
+            flex: 1;
+            position: relative;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+            background: #e0e0e0;
+        }
+        h1 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        h2 {
+            font-size: 13px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 20px 0 12px 0;
+            font-weight: 600;
+        }
+        .topic-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .topic-btn {
+            padding: 12px 14px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .topic-btn:hover:not(:disabled) {
+            border-color: #2196F3;
+            background: #f0f7ff;
+        }
+        .topic-btn.active {
+            background: #2196F3;
+            color: white;
+            border-color: #1976D2;
+        }
+        .topic-btn:disabled {
+            background: #f9f9f9;
+            color: #999;
+            cursor: not-allowed;
+            border-color: #eee;
+        }
+        .coming-soon-badge {
+            display: inline-block;
+            background: #ff9800;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 2px;
+            margin-left: 8px;
+            font-weight: bold;
+        }
+        .stats-box {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 15px;
+            border-left: 4px solid #2196F3;
+        }
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+        .stat-label {
+            font-weight: 600;
+        }
+        .stat-value {
+            color: #2196F3;
+            font-weight: bold;
+        }
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 3px;
+            font-size: 11px;
+            color: #1565c0;
+            line-height: 1.5;
+        }
+        .loading {
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>🗺️ Latvia OSM Statistics</h1>
+            
+            <h2>📊 Select Topic</h2>
+            <div class="topic-selector" id="topicSelector"></div>
+            
+            <div class="stats-box" id="statsBox" style="display:none;">
+                <div class="stat-item">
+                    <span class="stat-label">Municipalities:</span>
+                    <span class="stat-value" id="statMunis">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Length:</span>
+                    <span class="stat-value" id="statLength">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Segments:</span>
+                    <span class="stat-value" id="statSegments">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Avg Completeness:</span>
+                    <span class="stat-value" id="statCompleteness">-</span>
+                </div>
+            </div>
+
+            <div class="info-box" id="infoBox">
+                <strong>ℹ️ Info:</strong><br/>
+                Click a topic to see OSM statistics for that category across all Latvian municipalities. Coming soon: railways, buildings, POIs, forests.
+            </div>
+        </div>
+
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+        // Topic definitions
+        const topics = [
+            { id: 'roads', label: '🛣️ Roads', enabled: true, icon: '🛣️' },
+            { id: 'railways', label: '🚂 Railways', enabled: false, comingSoon: true },
+            { id: 'buildings', label: '🏢 Buildings', enabled: false, comingSoon: true },
+            { id: 'pois', label: '📍 POIs (Hospitals, Restaurants)', enabled: false, comingSoon: true },
+            { id: 'forests', label: '🌲 Forest Areas', enabled: false, comingSoon: true }
+        ];
+
+        let currentTopic = 'roads';
+        let map = null;
+        let geojsonLayer = null;
+        let allData = {};
+
+        // Initialize map
+        function initMap() {
+            map = L.map('map').setView([56.879, 24.603], 7);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            }).addTo(map);
+        }
+
+        // Create topic buttons
+        function createTopicButtons() {
+            const selector = document.getElementById('topicSelector');
+            selector.innerHTML = '';
+            
+            topics.forEach(topic => {
+                const btn = document.createElement('button');
+                btn.className = 'topic-btn';
+                if (topic.id === currentTopic) {
+                    btn.classList.add('active');
+                }
+                if (!topic.enabled) {
+                    btn.disabled = true;
+                }
+                
+                let label = topic.label;
+                if (topic.comingSoon) {
+                    label += ' <span class="coming-soon-badge">Coming Soon</span>';
+                }
+                
+                btn.innerHTML = label;
+                btn.onclick = () => {
+                    if (topic.enabled) {
+                        selectTopic(topic.id);
+                    }
+                };
+                
+                selector.appendChild(btn);
+            });
+        }
+
+        // Select topic
+        function selectTopic(topicId) {
+            currentTopic = topicId;
+            createTopicButtons();
+            loadTopicData();
+            updateStats();
+        }
+
+        // Load topic data
+        async function loadTopicData() {
+            try {
+                const statsBox = document.getElementById('statsBox');
+                statsBox.style.display = 'none';
+                
+                if (currentTopic === 'roads') {
+                    // Load roads data
+                    if (!allData.roads) {
+                        const response = await fetch('/api/geojson-data');
+                        const csvResponse = await fetch('/api/csv-data');
+                        
+                        allData.roads = {
+                            geojson: await response.json(),
+                            csv: await csvResponse.json()
+                        };
+                    }
+                    
+                    displayRoads();
+                    statsBox.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error loading data:', error);
+                alert('Error loading topic data');
+            }
+        }
+
+        // Display roads on map
+        function displayRoads() {
+            if (geojsonLayer) {
+                map.removeLayer(geojsonLayer);
+            }
+            
+            const data = allData.roads;
+            if (!data) return;
+            
+            geojsonLayer = L.geoJSON(data.geojson, {
+                style: {
+                    color: '#2196F3',
+                    weight: 2,
+                    opacity: 0.6,
+                    fillOpacity: 0.2
+                },
+                onEachFeature: function(feature, layer) {
+                    const props = feature.properties;
+                    const popup = `
+                        <div style="font-size: 12px;">
+                            <strong>${props.municipality_name}</strong><br/>
+                            <hr style="margin: 5px 0; border: none; border-top: 1px solid #ddd;">
+                            📏 <strong>${props.osm_road_km} km</strong> of roads<br/>
+                            📊 ${props.num_segments} segments<br/>
+                            ${props.completeness_pct ? '✓ ' + props.completeness_pct + '% complete' : '○ No official data'}
+                        </div>
+                    `;
+                    layer.bindPopup(popup);
+                }
+            }).addTo(map);
+            
+            const bounds = geojsonLayer.getBounds();
+            if (bounds.isValid()) {
+                map.fitBounds(bounds, { padding: [50, 50] });
+            }
+        }
+
+        // Update statistics
+        function updateStats() {
+            const statsBox = document.getElementById('statsBox');
+            
+            if (currentTopic === 'roads') {
+                const csv = allData.roads?.csv || [];
+                
+                let totalLength = 0;
+                let totalSegments = 0;
+                let completenessValues = [];
+                
+                csv.forEach(row => {
+                    totalLength += row.osm_road_km || 0;
+                    totalSegments += row.num_segments || 0;
+                    if (row.completeness_pct && !isNaN(row.completeness_pct)) {
+                        completenessValues.push(row.completeness_pct);
+                    }
+                });
+                
+                const avgCompleteness = completenessValues.length > 0
+                    ? (completenessValues.reduce((a, b) => a + b, 0) / completenessValues.length).toFixed(1)
+                    : '—';
+                
+                document.getElementById('statMunis').textContent = csv.length;
+                document.getElementById('statLength').textContent = totalLength.toFixed(0) + ' km';
+                document.getElementById('statSegments').textContent = totalSegments.toLocaleString();
+                document.getElementById('statCompleteness').textContent = 
+                    avgCompleteness === '—' ? '—' : avgCompleteness + '%';
+            }
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            initMap();
+            createTopicButtons();
+            loadTopicData();
+        });
+    </script>
+</body>
+</html>

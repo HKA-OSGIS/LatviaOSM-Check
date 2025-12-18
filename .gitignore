@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data files (keep only processed/exports)
+data/raw/*.pbf
+data/raw/*.osm.pbf
+
+# Large geojson files (over 100MB - GitHub limit)
+data/processed/roads.geojson
+data/processed/roads_by_municipality.geojson
+
+# Flask cache
+instance/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment
+.env

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Test</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .container { display: flex; height: 100vh; }
+        .sidebar { width: 300px; border-right: 1px solid #ccc; padding: 20px; background: #fff; }
+        #map { flex: 1; background: #eee; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>🗺️ Test Page</h1>
+            <p>If you see this, the HTML/CSS is working!</p>
+            <button onclick="test()">Test Button</button>
+            <pre id="output"></pre>
+        </div>
+        <div id="map"></div>
+    </div>
+    
+    <script>
+        async function test() {
+            try {
+                const res = await fetch('/api/csv-data');
+                const data = await res.json();
+                document.getElementById('output').textContent = 'CSV Records: ' + data.length + '\nFirst record: ' + JSON.stringify(data[0], null, 2);
+            } catch (e) {
+                document.getElementById('output').textContent = 'Error: ' + e.message;
+            }
+        }
+        console.log('Simple test page loaded');
+    </script>
+</body>
+</html>
