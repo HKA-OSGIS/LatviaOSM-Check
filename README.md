@@ -12,16 +12,17 @@ This project compares OpenStreetMap road data against official government statis
 
 ## Features
 
-✅ **30 Municipalities Included**
-- Official road data from government statistics (TRS020_20251218-122746.csv)
+✅ **36 Municipalities Included**
+- Official road data from government statistics (TRS020_20251218-165232.csv)
 - OSM road data extracted from Latvia OSM dataset
 - Completeness calculated for each municipality
+- Only official novads included (7 city states excluded)
 
 📊 **Data Metrics**
-- Total OSM Roads: 7,820.66 km
-- Total Official Roads: 46,952 km
-- Average Completeness: 24.73%
-- Range: 6.2% (Ludza) to 148.1% (Salaspils)
+- Total OSM Roads: 7,821 km
+- Total Official Roads: 54,785 km
+- Overall Completeness: 14.3%
+- Distribution: 4 high (≥50%), 7 medium (20-50%), 19 low (0-20%), 6 zero (0%)
 
 🗺️ **Interactive Map**
 - Color-coded municipalities by completeness percentage
@@ -63,18 +64,52 @@ This project compares OpenStreetMap road data against official government statis
 
 ### Prerequisites
 - Python 3.7+
-- Git
+- Git (with Git LFS for large files)
 
-### Setup
+### Download from GitHub
+
+#### Option 1: Clone Repository (Recommended)
 
 ```bash
-# Clone repository
+# Clone the repository with all large files
 git clone https://github.com/HKA-OSGIS/LatviaOSM-Check.git
 cd LatviaOSM-Check
+```
 
+#### Option 2: Download as ZIP
+
+1. Go to: https://github.com/HKA-OSGIS/LatviaOSM-Check
+2. Click **Code** button (green)
+3. Select **Download ZIP**
+4. Extract the ZIP file to your desired location
+5. Open terminal/command prompt in the extracted folder
+
+#### Option 3: Using Git LFS (for large spatial files)
+
+If you have Git LFS installed, it will automatically download large files (>100MB):
+
+```bash
+# Install Git LFS (if not already installed)
+# Windows: https://git-lfs.github.com or: choco install git-lfs
+# macOS: brew install git-lfs
+# Linux: sudo apt-get install git-lfs
+
+# Clone with LFS support
+git clone https://github.com/HKA-OSGIS/LatviaOSM-Check.git
+cd LatviaOSM-Check
+```
+
+### Setup Instructions
+
+```bash
 # Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Activate virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
@@ -162,9 +197,11 @@ Test Coverage:
 
 ## Municipalities Included
 
-Aizkraukle, Alūksne, Balvi, Bauska, Cēsis, Dobele, Gulbene, Jelgava, Jēkabpils, Krāslava, Kuldīga, Ludza, Līvāni, Madona, Ogre, Olaine, Preiļi, Rēzekne, Salaspils, Saldus, Saulkrasti, Sigulda, Smiltene, Talsi, Tukums, Valka, Valmiera, Varakļāni, Ventspils
+**36 Official Novads (Regional Municipalities):**
 
-*Note: 30 municipalities included (those with geographic boundaries in available data)*
+Aizkraukle, Alūksne, Balvi, Bauska, Cēsis, Dobele, Daugavpils, Dundaga, Engure, Garkalne, Iecava, Gulbene, Jēkabpils, Jelgava, Krāslava, Kuldīga, Līvāni, Ludza, Madona, Ogre, Olaine, Preiļi, Rēzekne, Ropaži, Salaspils, Saldus, Saulkrasti, Sigulda, Smiltene, Stopini, Talsi, Tukums, Valka, Valmiera, Varakļāni, Ventspils
+
+*Note: 7 city states excluded (Rīga, Daugavpils, Jelgava, Rēzekne, Ventspils, Liepāja, Jūrmala) as they have different administrative structures*
 
 ## Data Quality Notes
 
