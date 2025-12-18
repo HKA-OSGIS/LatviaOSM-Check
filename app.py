@@ -85,19 +85,26 @@ def build_hierarchy():
 
 @app.route('/')
 def index():
-    """Main page: map with feature selector dropdown."""
-    return render_template('with_dropdown.html')
+    """Main page: redirect to dynamic map."""
+    from flask import redirect
+    return redirect('/dynamic-map')
 
 
 @app.route('/map')
 def map_view():
-    """Interactive map view (Folium)."""
+    """Interactive map view (Folium - legacy)."""
     if not MAP_HTML.exists():
         return (
             'Map not found. Run: python scripts/07_create_interactive_map.py',
             500,
         )
     return send_file(MAP_HTML, mimetype='text/html')
+
+
+@app.route('/dynamic-map')
+def dynamic_map():
+    """Interactive map with dynamic data loading from API."""
+    return render_template('dynamic_map.html')
 
 
 @app.route('/selector')

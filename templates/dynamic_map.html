@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LatviaOSM-Check - Road Completeness Map</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #map {
+            width: 100%;
+            height: calc(100vh - 80px);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        
+        .legend {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 3px;
+            border: 1px solid #999;
+        }
+        
+        .info-box {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 0.9em;
+            max-width: 300px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LatviaOSM-Check: Road Completeness Analysis</h1>
+        <p style="margin: 5px 0 0 0; font-size: 0.9em;">36 Latvian Municipalities | 14.3% Overall Coverage</p>
+    </div>
+    
+    <div id="map"></div>
+    
+    <script>
+        // Initialize map
+        const map = L.map('map').setView([56.5, 24.5], 7);
+        
+        // Add base layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+        
+        // Color function based on completeness percentage
+        function getColor(completeness) {
+            if (completeness === null || completeness === undefined) return '#999999';
+            if (completeness >= 50) return '#00aa00';  // Green - High
+            if (completeness >= 20) return '#ffaa00';  // Orange - Medium
+            if (completeness > 0) return '#ff6600';    // Dark Orange - Low
+            return '#cc0000';                           // Red - None
+        }
+        
+        // Load municipality boundaries (36 only)
+        fetch('/api/geojson-data?type=boundaries')
+            .then(response => response.json())
+            .then(boundaries => {
+                console.log('Loaded boundaries:', boundaries.features.length);
+                L.geoJSON(boundaries, {
+                    style: {
+                        color: '#333',
+                        weight: 2,
+                        opacity: 0.8,
+                        fillOpacity: 0.2
+                    }
+                }).addTo(map);
+            })
+            .catch(err => console.error('Error loading boundaries:', err));
+        
+        // Load municipalities data for coloring
+        fetch('/api/csv-data')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Loaded CSV data:', data.length);
+                // Create completeness map by municipality name
+                const completenessMap = {};
+                data.forEach(row => {
+                    completenessMap[row.municipality_name] = row.completeness_pct;
+                });
+                
+                // Re-style with completeness colors
+                fetch('/api/geojson-data?type=boundaries')
+                    .then(response => response.json())
+                    .then(boundaries => {
+                        L.geoJSON(boundaries, {
+                            style: function(feature) {
+                                const muniName = feature.properties.shapeName;
+                                const completeness = completenessMap[muniName];
+                                return {
+                                    color: '#333',
+                                    weight: 2,
+                                    opacity: 0.8,
+                                    fillColor: getColor(completeness),
+                                    fillOpacity: 0.7
+                                };
+                            },
+                            onEachFeature: function(feature, layer) {
+                                const muniName = feature.properties.shapeName;
+                                const completeness = completenessMap[muniName];
+                                const osmData = data.find(d => d.municipality_name === muniName);
+                                
+                                let popup = `<div class="info-box">
+                                    <strong>${muniName}</strong><br/>
+                                    Completeness: ${completeness !== undefined ? completeness.toFixed(1) : 'N/A'}%<br/>`;
+                                
+                                if (osmData) {
+                                    popup += `OSM Roads: ${osmData.osm_road_km.toFixed(1)} km<br/>
+                                             Official Roads: ${osmData.official_road_km.toFixed(1)} km<br/>
+                                             Segments: ${osmData.Segments}`;
+                                }
+                                
+                                popup += `</div>`;
+                                
+                                layer.bindPopup(popup);
+                                layer.on('click', function() {
+                                    this.openPopup();
+                                });
+                            }
+                        }).addTo(map);
+                    });
+            })
+            .catch(err => console.error('Error loading data:', err));
+        
+        // Load and display OSM roads
+        fetch('/api/geojson-data?type=roads')
+            .then(response => response.json())
+            .then(roads => {
+                console.log('Loaded roads:', roads.features.length);
+                L.geoJSON(roads, {
+                    style: {
+                        color: '#0066cc',
+                        weight: 2,
+                        opacity: 0.6
+                    },
+                    onEachFeature: function(feature, layer) {
+                        const props = feature.properties || {};
+                        layer.bindPopup(`
+                            <div class="info-box">
+                                <strong>OSM Road</strong><br/>
+                                Name: ${props.name || 'N/A'}<br/>
+                                Type: ${props.highway || 'N/A'}
+                            </div>
+                        `);
+                    }
+                }).addTo(map);
+            })
+            .catch(err => console.log('Roads data not available:', err));
+        
+        // Add legend
+        const legend = L.control({position: 'bottomright'});
+        
+        legend.onAdd = function(map) {
+            const div = L.DomUtil.create('div', 'legend');
+            div.innerHTML = `
+                <div class="legend-item">
+                    <strong>Road Completeness</strong>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #00aa00;"></div>
+                    <span>High (≥50%)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ffaa00;"></div>
+                    <span>Medium (20-50%)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ff6600;"></div>
+                    <span>Low (0-20%)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #cc0000;"></div>
+                    <span>None (0%)</span>
+                </div>
+                <hr style="margin: 10px 0;">
+                <div style="font-size: 0.8em; color: #666;">
+                    Data: TRS020 Official Statistics<br/>
+                    OSM: OpenStreetMap Database
+                </div>
+            `;
+            return div;
+        };
+        
+        legend.addTo(map);
+    </script>
+</body>
+</html>
