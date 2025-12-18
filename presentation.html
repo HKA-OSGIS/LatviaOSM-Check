@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LatviaOSM-Check: Milestone Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .presentation-container {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .slides-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #1a1a1a;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide p {
+            font-size: 1.4em;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        .slide ul {
+            font-size: 1.2em;
+            line-height: 2;
+            text-align: left;
+            list-style: none;
+        }
+
+        .slide li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .slide li:before {
+            content: "✓";
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .metric-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-box h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .metric-box p {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 80px;
+            background: #f5f5f5;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #764ba2;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            font-size: 1.1em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .slide-dots {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: white;
+        }
+
+        /* Slide specific backgrounds */
+        .slide-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .slide-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .slide-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .slide-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .slide-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .slide-6 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        .slide-7 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .slide-8 { background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%); }
+        .slide-9 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+
+        .slide-8 h2,
+        .slide-8 p {
+            color: #333;
+        }
+
+        .slide-9 h1 {
+            font-size: 2.5em;
+        }
+
+        .stats-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-table th,
+        .stats-table td {
+            padding: 15px;
+            text-align: left;
+            font-size: 1.1em;
+        }
+
+        .stats-table th {
+            background: rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+
+        .stats-table tr:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .highlight {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .column {
+            text-align: left;
+        }
+
+        .column h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-decoration: underline;
+        }
+
+        .column ul {
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 30px;
+            }
+
+            .slide h1 {
+                font-size: 2em;
+            }
+
+            .slide h2 {
+                font-size: 1.8em;
+            }
+
+            .slide p {
+                font-size: 1.1em;
+            }
+
+            .controls {
+                padding: 20px 30px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .demo-note {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slides-wrapper">
+            <!-- Slide 1: Title Slide -->
+            <div class="slide slide-1 active">
+                <h1>LatviaOSM-Check</h1>
+                <p style="font-size: 1.8em; margin: 30px 0;">Analyzing OpenStreetMap Completeness</p>
+                <p>A Comprehensive Analysis of OSM Road Data vs Official Statistics</p>
+                <p style="margin-top: 50px; font-size: 1.2em; opacity: 0.9;">December 18, 2025</p>
+            </div>
+
+            <!-- Slide 2: Problem Statement -->
+            <div class="slide slide-2">
+                <h2>The Challenge</h2>
+                <p style="margin-top: 40px;">How complete is OpenStreetMap data for Latvian roads?</p>
+                <p>Where should the OSM community focus mapping efforts?</p>
+                <p>Which municipalities have gaps in coverage?</p>
+                <div class="demo-note" style="margin-top: 50px;">
+                    Official government data vs. Community-generated map data
+                </div>
+            </div>
+
+            <!-- Slide 3: Key Metrics -->
+            <div class="slide slide-3">
+                <h2>Key Findings</h2>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <h3>Total Municipalities</h3>
+                        <p>36</p>
+                    </div>
+                    <div class="metric-box">
+                        <h3>Total OSM Roads</h3>
+                        <p>7,821 km</p>
+                    </div>
+                    <div class="metric-box">
+                        <h3>Overall Coverage</h3>
+                        <p>14.3%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: System Architecture -->
+            <div class="slide slide-4">
+                <h2>System Architecture</h2>
+                <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+                    <ul style="text-align: left; list-style-position: inside;">
+                        <li><strong>Data Layer:</strong> Official TRS020 statistics + OSM extracts</li>
+                        <li><strong>Processing:</strong> GeoPandas pipeline for spatial analysis</li>
+                        <li><strong>Backend:</strong> Flask web application with API endpoints</li>
+                        <li><strong>Frontend:</strong> Interactive maps with Leaflet.js</li>
+                        <li><strong>Export:</strong> GeoJSON, CSV for further analysis</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 5: Interactive Features -->
+            <div class="slide slide-5">
+                <h2>Interactive Features</h2>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <ul>
+                        <li>🗺️ <strong>Multi-Select Municipality Comparison</strong> - Compare multiple areas simultaneously</li>
+                        <li>📊 <strong>Real-Time Statistics Dashboard</strong> - Live aggregated data</li>
+                        <li>🎨 <strong>Color-Coded Map</strong> - Visualize completeness by municipality</li>
+                        <li>🔗 <strong>API Endpoints</strong> - Programmatic data access</li>
+                        <li>📁 <strong>Data Exports</strong> - GeoJSON and CSV formats</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 6: Completeness Categories -->
+            <div class="slide slide-6">
+                <h2>Coverage Analysis</h2>
+                <table class="stats-table">
+                    <tr>
+                        <th>Category</th>
+                        <th>Range</th>
+                        <th>Municipalities</th>
+                    </tr>
+                    <tr>
+                        <td>High (≥50%)</td>
+                        <td>≥50%</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>Medium</td>
+                        <td>20-50%</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>Low</td>
+                        <td>0-20%</td>
+                        <td>19</td>
+                    </tr>
+                    <tr>
+                        <td>No Data</td>
+                        <td>0%</td>
+                        <td>6</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Slide 7: Project Status -->
+            <div class="slide slide-7">
+                <h2>Current Status</h2>
+                <div class="two-column" style="color: #333;">
+                    <div class="column">
+                        <h3>✅ Completed</h3>
+                        <ul>
+                            <li>Roads analysis (full)</li>
+                            <li>Web application</li>
+                            <li>Interactive mapping</li>
+                            <li>API endpoints</li>
+                            <li>Documentation</li>
+                            <li>GitHub repository</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>🔄 Next Steps</h3>
+                        <ul>
+                            <li>Add railway analysis</li>
+                            <li>Building coverage metrics</li>
+                            <li>POI completeness</li>
+                            <li>Enhanced reporting</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: Deliverables -->
+            <div class="slide slide-8">
+                <h2>Project Deliverables</h2>
+                <ul>
+                    <li>📊 <strong>Statistical Analysis</strong> - Complete data processing pipeline</li>
+                    <li>🌐 <strong>Web Application</strong> - Interactive Flask-based interface</li>
+                    <li>🗺️ <strong>Interactive Maps</strong> - HTML map with Leaflet.js</li>
+                    <li>📁 <strong>Data Exports</strong> - GeoJSON and CSV formats</li>
+                    <li>📚 <strong>Documentation</strong> - README, EXTENDING guide, API docs</li>
+                    <li>🔗 <strong>GitHub Repository</strong> - Open-source on HKA-OSGIS</li>
+                </ul>
+            </div>
+
+            <!-- Slide 9: Closing Slide -->
+            <div class="slide slide-9">
+                <h1>Thank You!</h1>
+                <p style="font-size: 1.6em; margin-top: 50px;">Questions & Demo</p>
+                <div style="margin-top: 60px; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 10px;">
+                    <p><strong>GitHub:</strong> github.com/HKA-OSGIS/LatviaOSM-Check</p>
+                    <p style="margin-top: 20px;">Run: <code style="background: rgba(0,0,0,0.2); padding: 5px 10px;">python app.py</code></p>
+                    <p style="margin-top: 10px;">Visit: <code style="background: rgba(0,0,0,0.2); padding: 5px 10px;">http://localhost:5000</code></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="controls">
+            <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <div class="slide-dots" id="dotsContainer"></div>
+            <div class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">9</span>
+            </div>
+            <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // Create dots
+        const dotsContainer = document.getElementById('dotsContainer');
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            slides[n].classList.add('active');
+            currentSlide = n;
+
+            document.getElementById('currentSlide').textContent = n + 1;
+            document.getElementById('prevBtn').disabled = n === 0;
+            document.getElementById('nextBtn').disabled = n === totalSlides - 1;
+
+            // Update dots
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === n);
+            });
+        }
+
+        function changeSlide(direction) {
+            let newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                showSlide(newSlide);
+            }
+        }
+
+        function goToSlide(n) {
+            showSlide(n);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>

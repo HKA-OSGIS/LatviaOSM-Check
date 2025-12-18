@@ -153,25 +153,25 @@
             <div class="stats-box" id="statsBox">
                 <div class="stat-item">
                     <span class="stat-label">Municipalities:</span>
-                    <span class="stat-value" id="statMunis">587</span>
+                    <span class="stat-value" id="statMunis">Loading...</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-label">Total Length:</span>
-                    <span class="stat-value" id="statLength">~12,000 km</span>
+                    <span class="stat-label">Total OSM Roads:</span>
+                    <span class="stat-value" id="statLength">Loading...</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-label">Total Segments:</span>
-                    <span class="stat-value" id="statSegments">~98,000</span>
+                    <span class="stat-label">Total Official:</span>
+                    <span class="stat-value" id="statOfficial">Loading...</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-label">Avg Completeness:</span>
-                    <span class="stat-value" id="statCompleteness">42%</span>
+                    <span class="stat-value" id="statCompleteness">Loading...</span>
                 </div>
             </div>
 
             <div class="info-box">
                 <strong>ℹ️ Info:</strong><br/>
-                Select a feature type from the dropdown. The map shows OSM data for all 587 Latvian municipalities. Click municipalities on the map to see details.
+                Select a feature type from the dropdown. The map shows OSM road completeness data. Click municipalities on the map to see details.
             </div>
         </div>
 
@@ -200,13 +200,13 @@
             fetch('/api/csv-data')
                 .then(r => r.json())
                 .then(data => {
-                    let totalLength = 0;
-                    let totalSegments = 0;
+                    let totalOsmLength = 0;
+                    let totalOfficialLength = 0;
                     let completenessValues = [];
                     
                     data.forEach(row => {
-                        totalLength += row.osm_road_km || 0;
-                        totalSegments += row.num_segments || 0;
+                        totalOsmLength += row.osm_road_km || 0;
+                        totalOfficialLength += row.official_road_km || 0;
                         if (row.completeness_pct && !isNaN(row.completeness_pct)) {
                             completenessValues.push(row.completeness_pct);
                         }
@@ -217,8 +217,8 @@
                         : '—';
                     
                     document.getElementById('statMunis').textContent = data.length;
-                    document.getElementById('statLength').textContent = totalLength.toFixed(0) + ' km';
-                    document.getElementById('statSegments').textContent = totalSegments.toLocaleString();
+                    document.getElementById('statLength').textContent = totalOsmLength.toFixed(0) + ' km';
+                    document.getElementById('statOfficial').textContent = totalOfficialLength.toFixed(0) + ' km';
                     document.getElementById('statCompleteness').textContent = 
                         avgCompleteness === '—' ? '—' : avgCompleteness + '%';
                 })

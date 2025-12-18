@@ -137,6 +137,18 @@ def api_csv_data():
     if df is None:
         return jsonify({'error': 'CSV data not available'}), 500
     
+    # Rename columns to match the expected format
+    df = df.rename(columns={
+        'Municipality': 'municipality_name',
+        'OSM_Roads_km': 'osm_road_km',
+        'Official_Roads_km': 'official_road_km',
+        'Completeness_%': 'completeness_pct',
+        # Handle old format columns as well
+        'OSM Roads (km)': 'osm_road_km',
+        'Official Roads (km)': 'official_road_km',
+        'Completeness (%)': 'completeness_pct'
+    })
+    
     # Convert to records and ensure NaN becomes None for JSON serialization
     records = json.loads(df.to_json(orient='records'))
     return jsonify(records)
