@@ -1,0 +1,42 @@
+# Project Metadata
+name = "LatviaOSM-Check"
+version = "2.0.0"
+description = "OpenStreetMap road completeness analysis tool for Latvia"
+author = "LatviaOSM-Check Contributors"
+license = "MIT"
+python_requires = ">=3.8"
+
+# Repository
+repository = "https://github.com/<your-org>/latvia_osm_project"
+homepage = "https://github.com/<your-org>/latvia_osm_project"
+documentation = "https://github.com/<your-org>/latvia_osm_project/blob/main/README.md"
+
+# Keywords
+keywords = [
+    "openstreetmap",
+    "osm",
+    "latvia",
+    "geospatial",
+    "gis",
+    "roads",
+    "completeness",
+    "flask",
+    "geopandas",
+    "spatial-analysis"
+]
+
+# Classifiers
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: GIS",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]

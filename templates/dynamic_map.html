@@ -80,7 +80,7 @@
 <body>
     <div class="header">
         <h1>LatviaOSM-Check: Road Completeness Analysis</h1>
-        <p style="margin: 5px 0 0 0; font-size: 0.9em;">36 Latvian Municipalities | 14.3% Overall Coverage</p>
+        <p style="margin: 5px 0 0 0; font-size: 0.9em;">36 Latvian Municipalities</p>
     </div>
     
     <div id="map"></div>
@@ -98,10 +98,10 @@
         // Color function based on completeness percentage
         function getColor(completeness) {
             if (completeness === null || completeness === undefined) return '#999999';
-            if (completeness >= 50) return '#00aa00';  // Green - High
-            if (completeness >= 20) return '#ffaa00';  // Orange - Medium
-            if (completeness > 0) return '#ff6600';    // Dark Orange - Low
-            return '#cc0000';                           // Red - None
+            if (completeness >= 90) return '#1a9850';  // Green - 90-110% or above
+            if (completeness >= 70) return '#fee08b';  // Yellow - 70-90% (Medium)
+            if (completeness < 50) return '#d73027';   // Red - Below 50% (Low)
+            return '#fc8d59';                           // Orange - 50-70% (In-between)
         }
         
         // Load municipality boundaries (36 only)
@@ -205,29 +205,30 @@
         legend.onAdd = function(map) {
             const div = L.DomUtil.create('div', 'legend');
             div.innerHTML = `
-                <div class="legend-item">
+                <div class="legend-item" style="font-weight: bold; margin-bottom: 8px; border-bottom: 2px solid #333; padding-bottom: 5px;">
                     <strong>Road Completeness</strong>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-color" style="background-color: #00aa00;"></div>
-                    <span>High (≥50%)</span>
+                    <div class="legend-color" style="background-color: #1a9850;"></div>
+                    <span><strong>Green:</strong> 90-110% or above</span>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-color" style="background-color: #ffaa00;"></div>
-                    <span>Medium (20-50%)</span>
+                    <div class="legend-color" style="background-color: #fee08b;"></div>
+                    <span><strong>Yellow:</strong> 70-90% (Medium)</span>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-color" style="background-color: #ff6600;"></div>
-                    <span>Low (0-20%)</span>
+                    <div class="legend-color" style="background-color: #fc8d59;"></div>
+                    <span><strong>Orange:</strong> 50-70%</span>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-color" style="background-color: #cc0000;"></div>
-                    <span>None (0%)</span>
+                    <div class="legend-color" style="background-color: #d73027;"></div>
+                    <span><strong>Red:</strong> Below 50% (Low)</span>
                 </div>
-                <hr style="margin: 10px 0;">
-                <div style="font-size: 0.8em; color: #666;">
-                    Data: TRS020 Official Statistics<br/>
-                    OSM: OpenStreetMap Database
+                <hr style="margin: 10px 0; border: 1px solid #ccc;">
+                <div style="font-size: 0.75em; color: #666; line-height: 1.4;">
+                    📊 <strong>Data Source:</strong><br/>
+                    • OSM: OpenStreetMap<br/>
+                    • Official: TRS020 Latvia
                 </div>
             `;
             return div;

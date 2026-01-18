@@ -43,14 +43,14 @@ def get_color(completeness):
     if pd.isna(completeness):
         return '#cccccc'
     completeness = float(completeness)
-    if completeness >= 100:
-        return '#4575b4'  # Over-mapped (blue)
-    elif completeness >= 80:
-        return '#91cf60'  # Complete (green)
-    elif completeness >= 50:
-        return '#fc8d59'  # Partial (orange)
+    if completeness >= 90:
+        return '#1a9850'  # Green: 90-110% or above
+    elif completeness >= 70:
+        return '#fee08b'  # Yellow: 70-90%
+    elif completeness < 50:
+        return '#d73027'  # Red: Below 50%
     else:
-        return '#d73027'  # Low (red)
+        return '#fc8d59'  # Orange: 50-70% (in-between)
 
 print("3/3 Adding municipality boundaries with popups...")
 
