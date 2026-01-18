@@ -5,10 +5,9 @@ Provides both a traditional map view and a new hierarchical geographic selector
 for filtering by country, region, municipality, and feature type.
 """
 
-from flask import Flask, send_file, jsonify, request, render_template
+from flask import Flask, send_file, jsonify, request, render_template, redirect
 from pathlib import Path
 import json
-import geopandas as gpd
 import pandas as pd
 
 app = Flask(__name__, template_folder='templates')
@@ -86,7 +85,6 @@ def build_hierarchy():
 @app.route('/')
 def index():
     """Main page: redirect to dynamic map."""
-    from flask import redirect
     return redirect('/dynamic-map')
 
 
@@ -105,18 +103,6 @@ def map_view():
 def dynamic_map():
     """Interactive map with dynamic data loading from API."""
     return render_template('dynamic_map.html')
-
-
-@app.route('/selector')
-def selector():
-    """Geographic selector with checkboxes and comparison."""
-    return render_template('geographic_selector.html')
-
-
-@app.route('/folium')
-def folium_map():
-    """Alias for the interactive map."""
-    return map_view()
 
 
 @app.route('/api/hierarchy', methods=['GET'])

@@ -166,9 +166,8 @@ To reprocess everything from scratch:
 
 ```bash
 cd scripts
-.\run_all.sh  # On Windows with Git Bash
+bash run_pipeline.sh  # On Linux/Mac or Git Bash on Windows
 # Or run scripts individually:
-python 00_convert_official_stats.py
 python 02_extract_roads.py
 python 03_process_municipalities.py
 python 04_spatial_join.py
