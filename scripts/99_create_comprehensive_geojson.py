@@ -53,11 +53,13 @@ for feature in all_boundaries['features']:
             segments = int(float(comp_row['Segments'])) if comp_row['Segments'] and str(comp_row['Segments']).lower() != 'nan' else None
             official_km = float(comp_row['Official_Roads_km']) if comp_row['Official_Roads_km'] and str(comp_row['Official_Roads_km']).lower() != 'nan' else None
             completeness_pct = float(comp_row['Completeness_%']) if comp_row['Completeness_%'] and str(comp_row['Completeness_%']).lower() != 'nan' else None
+            area_type = comp_row.get('Area_Type', 'Unknown') if comp_row.get('Area_Type') else 'Unknown'
             
             feature['properties']['OSM_Roads_km'] = osm_km
             feature['properties']['Segments'] = segments
             feature['properties']['Official_Roads_km'] = official_km
             feature['properties']['Completeness_%'] = completeness_pct
+            feature['properties']['Area_Type'] = area_type
             feature['properties']['has_data'] = True
             merged_count += 1
             municipalities_with_data.append(shape_name)
@@ -70,6 +72,7 @@ for feature in all_boundaries['features']:
         # No completeness data - mark as city or unmatched
         feature['properties']['has_data'] = False
         feature['properties']['Municipality'] = shape_name
+        feature['properties']['Area_Type'] = 'Unknown'
         cities_without_data.append(shape_name)
 
 print(f"  Merged: {merged_count} features with completeness data")

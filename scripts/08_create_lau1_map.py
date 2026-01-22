@@ -32,6 +32,16 @@ gdf = gpd.GeoDataFrame(data_list, crs='EPSG:4326')
 print(f"  Columns: {list(gdf.columns)}")
 print()
 
+# DEBUG: Check Jelgava entries
+print("DEBUG: Jelgava entries in GeoDataFrame:")
+for idx, row in gdf[gdf['municipality_name'].str.contains('Jelgava', na=False)].iterrows():
+    print(f"  {row['municipality_name']}: Area_Type={row.get('Area_Type', 'MISSING')}")
+print()
+
+# Add cache busting to ensure browser shows latest version
+import time
+cache_buster = int(time.time())
+
 # Create base map centered on Latvia
 print("2/3 Creating base map...")
 m = folium.Map(
@@ -76,13 +86,17 @@ for idx, row in municipalities.iterrows():
     osm_km = float(row.get('OSM_Roads_km', 0))
     official_km = float(row.get('Official_Roads_km', None)) if row.get('Official_Roads_km') is not None else None
     completeness = float(row.get('Completeness_%', None)) if row.get('Completeness_%') is not None else None
+    area_type = row.get('Area_Type', 'Unknown')
     
     # Create popup with all available data
     popup_html = f"""
     <div style="width: 350px; font-family: Arial; font-size: 12px;">
-        <h4 style="margin: 0 0 10px 0; color: #1976D2; border-bottom: 2px solid #2196F3; padding-bottom: 8px;">
+        <h4 style="margin: 0 0 5px 0; color: #1976D2; border-bottom: 2px solid #2196F3; padding-bottom: 8px;">
             {mun_name}
         </h4>
+        <p style="margin: 0 0 10px 0; font-size: 11px; color: #666;">
+            <strong>Type:</strong> {area_type}
+        </p>
         
         <table style="width: 100%; border-collapse: collapse;">
             <tr style="background-color: #f5f5f5;">
