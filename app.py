@@ -14,7 +14,8 @@ app = Flask(__name__, template_folder='templates')
 
 ROOT = Path(__file__).resolve().parent
 MAP_HTML = ROOT / 'outputs' / 'maps' / 'interactive_map.html'
-GEOJSON_FILE = ROOT / 'outputs' / 'exports' / 'latvia_municipalities_36_only.geojson'
+LAU1_MAP_HTML = ROOT / 'outputs' / 'maps' / 'interactive_map.html'  # LAU1 map with municipalities and cities
+GEOJSON_FILE = ROOT / 'outputs' / 'exports' / 'latvia_lau1.geojson'  # Updated to use LAU1 GeoJSON
 CSV_FILE = ROOT / 'outputs' / 'exports' / 'completeness_municipalities.csv'
 
 # Cache for GeoJSON data and hierarchy
@@ -84,19 +85,30 @@ def build_hierarchy():
 
 @app.route('/')
 def index():
-    """Main page: redirect to dynamic map."""
-    return redirect('/dynamic-map')
+    """Main page: redirect to LAU1 map."""
+    return redirect('/lau1-map')
 
 
 @app.route('/map')
 def map_view():
-    """Interactive map view (Folium - legacy)."""
+    """Interactive map view with LAU1 municipalities and cities."""
     if not MAP_HTML.exists():
         return (
-            'Map not found. Run: python scripts/07_create_interactive_map.py',
+            'Map not found. Run: python scripts/08_create_lau1_map.py',
             500,
         )
     return send_file(MAP_HTML, mimetype='text/html')
+
+
+@app.route('/lau1-map')
+def lau1_map():
+    """Interactive LAU1 map view with municipalities and cities."""
+    if not LAU1_MAP_HTML.exists():
+        return (
+            'LAU1 map not found. Run: python scripts/08_create_lau1_map.py',
+            500,
+        )
+    return send_file(LAU1_MAP_HTML, mimetype='text/html')
 
 
 @app.route('/dynamic-map')
@@ -203,29 +215,29 @@ if __name__ == '__main__':
     
     # Check files
     if not GEOJSON_FILE.exists():
-        print("❌ GeoJSON not found:")
+        print("[X] GeoJSON not found:")
         print(f"  {GEOJSON_FILE}")
     else:
-        print("✓ GeoJSON found")
+        print("[OK] GeoJSON found")
     
     if not CSV_FILE.exists():
-        print("❌ CSV data not found:")
+        print("[X] CSV data not found:")
         print(f"  {CSV_FILE}")
     else:
-        print("✓ CSV data found")
+        print("[OK] CSV data found")
     
     if not MAP_HTML.exists():
-        print("⚠ Legacy map not found (optional)")
+        print("[!] Legacy map not found (optional)")
     else:
-        print("✓ Legacy map available at /map")
+        print("[OK] Legacy map available at /map")
     
     print("\n[MAIN] Topic Selector at: http://localhost:5000")
     print("[AVAILABLE TOPICS]")
-    print("  ✓ Roads (OSM + 20 cities official data)")
-    print("  ⏳ Railways (Coming soon)")
-    print("  ⏳ Buildings (Coming soon)")
-    print("  ⏳ POIs - Hospitals, Restaurants (Coming soon)")
-    print("  ⏳ Forests (Coming soon)")
+    print("  [OK] Roads (OSM + 7 cities official data)")
+    print("  [PENDING] Railways (Coming soon)")
+    print("  [PENDING] Buildings (Coming soon)")
+    print("  [PENDING] POIs - Hospitals, Restaurants (Coming soon)")
+    print("  [PENDING] Forests (Coming soon)")
     print("\n[API] Endpoints:")
     print("  - GET /api/geojson-data - OSM roads GeoJSON")
     print("  - GET /api/csv-data - Get all municipality statistics")
