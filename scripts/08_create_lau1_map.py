@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Create interactive map with LAU-1 boundaries and official data"""
 
 import json
@@ -6,6 +7,12 @@ import folium
 import pandas as pd
 from shapely.geometry import shape
 import geopandas as gpd
+import sys
+import io
+
+# Ensure UTF-8 output for Windows console
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8')
 
 print("=" * 70)
 print("Creating Interactive Map with LAU-1 Municipalities & Official Data")
@@ -116,16 +123,6 @@ for idx, row in municipalities.iterrows():
                 </td>
             </tr>
         </table>
-        
-        <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 11px; color: #666;">
-            <p style="margin: 0;">
-                <strong>Interpretation:</strong><br>
-                • <50%: Low coverage<br>
-                • 50-80%: Partial coverage<br>
-                • 80-100%: Complete coverage<br>
-                • >100%: Over-mapped (OSM > official)
-            </p>
-        </div>
     </div>
     """
     
@@ -193,7 +190,7 @@ legend_html = '''
     </p>
     <p style="margin: 0 0 8px 0; font-size: 12px;">
         <i style="background-color: #fc8d59; width: 20px; height: 15px; display: inline-block;"></i>
-        &nbsp; Partial (50-80%)
+        &nbsp; Partial (50-70%)
     </p>
     <p style="margin: 0 0 8px 0; font-size: 12px;">
         <i style="background-color: #fee08b; width: 20px; height: 15px; display: inline-block;"></i>
@@ -204,9 +201,20 @@ legend_html = '''
         &nbsp; Excellent (≥90%)
     </p>
     <hr style="margin: 10px 0; border: none; border-top: 1px solid #ccc;">
-    <p style="margin: 0 0 0px 0; font-size: 12px; color: #666;">
-        <i style="background-color: #ffcccc; width: 20px; height: 15px; display: inline-block; border: 2px dashed #cc0000;"></i>
-        &nbsp; <strong>Cities</strong> (no data available)
+    <p style="margin: 0 0 8px 0; font-size: 11px; color: #666; font-weight: bold;">
+        Interpretation:
+    </p>
+    <p style="margin: 0 0 3px 0; font-size: 10px; color: #666;">
+        • &lt;50%: Low coverage
+    </p>
+    <p style="margin: 0 0 3px 0; font-size: 10px; color: #666;">
+        • 50-70%: Partial coverage
+    </p>
+    <p style="margin: 0 0 3px 0; font-size: 10px; color: #666;">
+        • 70-90%: Good coverage
+    </p>
+    <p style="margin: 0 0 8px 0; font-size: 10px; color: #666;">
+        • ≥90%: Excellent coverage
     </p>
 </div>
 '''
