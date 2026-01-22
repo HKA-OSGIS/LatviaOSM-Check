@@ -57,17 +57,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Zero NULL values in final dataset
 - 203.9% overall completeness (OSM richer than official data)
 
-## [0.1.0] - 2025-12-01
-
-### Added
-- Initial project setup
-- Basic data pipeline
-- OSM data extraction from latvia-latest.osm.pbf
-- Municipality boundary processing
-- Simple spatial join
-- Basic Flask web interface
-
-### Known Issues
-- 6 novads showing 0.0 km (N/A% completeness)
-- Name matching failures (only 16.7% success rate)
-- Using wrong administrative level (parishes instead of novads)
