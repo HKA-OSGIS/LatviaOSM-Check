@@ -1,0 +1,81 @@
+municipality_name,osm_forest_km2,osm_forest_ha,num_forest_areas,forest_area_ha,forest_area_km2,completeness_pct,difference_ha,difference_km2,category
+Aizkraukle,246.33,24633.13,713.0,0.0,0.0,,,,No data
+Aizkraukles novads,0.0,0.0,0.0,142086.0,1420.86,,,,No data
+Alūksne,310.82,31082.11,2759.0,0.0,0.0,,,,No data
+Alūksnes novads,0.0,0.0,0.0,113446.0,1134.46,,,,No data
+Augšdaugava,399.77,39976.96,3751.0,0.0,0.0,,,,No data
+Augšdaugavas novads,0.0,0.0,0.0,101029.0,1010.29,,,,No data
+Balvi,290.71,29071.35,559.0,0.0,0.0,,,,No data
+Balvu novads,0.0,0.0,0.0,133675.0,1336.75,,,,No data
+Bauska,354.73,35472.58,1610.0,0.0,0.0,,,,No data
+Bauskas novads,0.0,0.0,0.0,86926.0,869.26,,,,No data
+Cēsis,352.95,35294.71,1520.0,0.0,0.0,,,,No data
+Cēsu novads,0.0,0.0,0.0,160462.0,1604.62,,,,No data
+Daugavpils,23.59,2358.6,370.0,1591.0,15.91,148.25,767.6,7.68,Over-mapped
+Dienvidkurzeme,627.48,62748.44,2111.0,0.0,0.0,,,,No data
+Dienvidkurzemes novads,0.0,0.0,0.0,177602.0,1776.02,,,,No data
+Dobele,212.64,21264.44,776.0,0.0,0.0,,,,No data
+Dobeles novads,0.0,0.0,0.0,54561.0,545.61,,,,No data
+Gulbene,446.45,44645.19,668.0,0.0,0.0,,,,No data
+Gulbenes novads,0.0,0.0,0.0,112152.0,1121.52,,,,No data
+Jelgava,180.84,18084.46,968.0,1182.0,11.82,1529.99,16902.46,169.02,Over-mapped
+Jelgavas,8.12,812.29,54.0,0.0,0.0,,,,No data
+Jelgavas novads,0.0,0.0,0.0,53284.0,532.84,,,,No data
+Jēkabpils,331.92,33192.18,2262.0,192.0,1.92,17287.59,33000.18,330.0,Over-mapped
+Jēkabpils novads,0.0,0.0,0.0,168363.0,1683.63,,,,No data
+Jūrmala,0.0,0.0,0.0,4811.0,48.11,,,,No data
+Jūrmalas,18.96,1895.69,305.0,0.0,0.0,,,,No data
+Krāslava,417.37,41736.6,1275.0,0.0,0.0,,,,No data
+Krāslavas novads,0.0,0.0,0.0,97049.0,970.49,,,,No data
+Kuldīga,381.49,38148.72,2485.0,0.0,0.0,,,,No data
+Kuldīgas novads,0.0,0.0,0.0,148993.0,1489.93,,,,No data
+Latvija,0.0,0.0,0.0,3454604.0,34546.04,,,,No data
+Liepāja,0.0,0.0,0.0,1212.0,12.12,,,,No data
+Liepājas,26.39,2639.03,96.0,0.0,0.0,,,,No data
+Limbaži,377.76,37776.01,611.0,0.0,0.0,,,,No data
+Limbažu novads,0.0,0.0,0.0,154032.0,1540.32,,,,No data
+Ludza,342.03,34202.75,526.0,0.0,0.0,,,,No data
+Ludzas novads,0.0,0.0,0.0,131257.0,1312.57,,,,No data
+Līvāni,102.33,10232.75,179.0,0.0,0.0,,,,No data
+Līvānu novads,0.0,0.0,0.0,28647.0,286.47,,,,No data
+Madona,431.8,43179.66,1329.0,0.0,0.0,,,,No data
+Madonas novads,0.0,0.0,0.0,173531.0,1735.31,,,,No data
+Mārupe,60.41,6040.87,702.0,0.0,0.0,,,,No data
+Mārupes novads,0.0,0.0,0.0,16242.0,162.42,,,,No data
+Ogre,273.83,27383.4,892.0,223.0,2.23,12279.55,27160.4,271.6,Over-mapped
+Ogres novads,0.0,0.0,0.0,102802.0,1028.02,,,,No data
+Olaine,59.24,5924.01,1128.0,0.0,0.0,,,,No data
+Olaines novads,0.0,0.0,0.0,22208.0,222.08,,,,No data
+Preiļi,215.59,21558.9,435.0,0.0,0.0,,,,No data
+Preiļu novads,0.0,0.0,0.0,51728.0,517.28,,,,No data
+Ropaži,101.98,10198.18,590.0,0.0,0.0,,,,No data
+Ropažu novads,0.0,0.0,0.0,37919.0,379.19,,,,No data
+Rēzekne,508.41,50840.72,934.0,8.0,0.08,635509.0,50832.72,508.33,Over-mapped
+Rēzeknes,1.95,195.46,19.0,0.0,0.0,,,,No data
+Rēzeknes novads,0.0,0.0,0.0,110660.0,1106.6,,,,No data
+Rīga,13.38,1337.62,1106.0,5577.0,55.77,23.98,-4239.38,-42.39,Low
+Salaspils novads,18.48,1847.88,407.0,3872.0,38.72,47.72,-2024.12,-20.24,Low
+Saldus,380.71,38070.8,2733.0,0.0,0.0,,,,No data
+Saldus novads,0.0,0.0,0.0,110206.0,1102.06,,,,No data
+Saulkrasti,46.23,4622.83,243.0,0.0,0.0,,,,No data
+Saulkrastu novads,0.0,0.0,0.0,18872.0,188.72,,,,No data
+Sigulda,184.91,18491.3,1199.0,0.0,0.0,,,,No data
+Siguldas novads,0.0,0.0,0.0,59689.0,596.89,,,,No data
+Smiltene,283.62,28361.93,719.0,0.0,0.0,,,,No data
+Smiltenes novads,0.0,0.0,0.0,108192.0,1081.92,,,,No data
+Talsi,291.52,29152.0,1093.0,0.0,0.0,,,,No data
+Talsu novads,0.0,0.0,0.0,177882.0,1778.82,,,,No data
+Tukuma novads,0.0,0.0,0.0,120618.0,1206.18,,,,No data
+Tukums,410.2,41020.11,2594.0,0.0,0.0,,,,No data
+Valka,90.08,9008.15,164.0,0.0,0.0,,,,No data
+Valkas novads,0.0,0.0,0.0,62378.0,623.78,,,,No data
+Valmiera,416.37,41637.28,2418.0,404.0,4.04,10306.26,41233.28,412.33,Over-mapped
+Valmieras novads,0.0,0.0,0.0,163086.0,1630.86,,,,No data
+Varakļāni,56.61,5660.8,37.0,0.0,0.0,,,,No data
+Varakļānu novads,0.0,0.0,0.0,12234.0,122.34,,,,No data
+Ventspils,254.45,25444.99,492.0,1522.0,15.22,1671.81,23922.99,239.23,Over-mapped
+Ventspils novads,0.0,0.0,0.0,180375.0,1803.75,,,,No data
+Ādaži,18.74,1874.27,329.0,0.0,0.0,,,,No data
+Ādažu novads,0.0,0.0,0.0,15690.0,156.9,,,,No data
+Ķekava,45.97,4596.84,1323.0,0.0,0.0,,,,No data
+Ķekavas novads,0.0,0.0,0.0,26955.0,269.55,,,,No data

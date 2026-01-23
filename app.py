@@ -15,21 +15,25 @@ app = Flask(__name__, template_folder='templates')
 ROOT = Path(__file__).resolve().parent
 MAP_HTML = ROOT / 'outputs' / 'maps' / 'interactive_map.html'
 LAU1_MAP_HTML = ROOT / 'outputs' / 'maps' / 'interactive_map.html'  # LAU1 map with municipalities and cities
+FOREST_MAP_HTML = ROOT / 'outputs' / 'maps' / 'forest_completeness_map.html'  # Forest map
 GEOJSON_FILE = ROOT / 'outputs' / 'exports' / 'latvia_lau1.geojson'  # Updated to use LAU1 GeoJSON
 CSV_FILE = ROOT / 'outputs' / 'exports' / 'completeness_municipalities.csv'
+FOREST_CSV_FILE = ROOT / 'outputs' / 'exports' / 'completeness_forests.csv'
 
 # Cache for GeoJSON data and hierarchy
 _geojson_cache = None
 _hierarchy_cache = None
 _dataframe_cache = None
+_forest_dataframe_cache = None
 
 
 def clear_cache():
     """Clear all caches to force reload."""
-    global _geojson_cache, _hierarchy_cache, _dataframe_cache
+    global _geojson_cache, _hierarchy_cache, _dataframe_cache, _forest_dataframe_cache
     _geojson_cache = None
     _hierarchy_cache = None
     _dataframe_cache = None
+    _forest_dataframe_cache = None
 
 
 def load_geojson():
@@ -49,6 +53,15 @@ def load_dataframe():
         if CSV_FILE.exists():
             _dataframe_cache = pd.read_csv(CSV_FILE, encoding='utf-8')
     return _dataframe_cache
+
+
+def load_forest_dataframe():
+    """Load and cache forest CSV data."""
+    global _forest_dataframe_cache
+    if _forest_dataframe_cache is None:
+        if FOREST_CSV_FILE.exists():
+            _forest_dataframe_cache = pd.read_csv(FOREST_CSV_FILE, encoding='utf-8')
+    return _forest_dataframe_cache
 
 
 def build_hierarchy():
@@ -100,6 +113,17 @@ def map_view():
     return send_file(MAP_HTML, mimetype='text/html')
 
 
+
+
+@app.route('/forest-map')
+def forest_map():
+    """Interactive forest completeness map."""
+    if not FOREST_MAP_HTML.exists():
+        return (
+            'Forest map not found. Run: python scripts/13_create_forest_map.py',
+            500,
+        )
+    return send_file(FOREST_MAP_HTML, mimetype='text/html')
 @app.route('/lau1-map')
 def lau1_map():
     """Interactive LAU1 map view with municipalities and cities."""
@@ -208,6 +232,18 @@ def api_data(municipality):
     return jsonify(result)
 
 
+@app.route('/api/forest-data', methods=['GET'])
+def api_forest_data():
+    """Get forest completeness data for all municipalities as array of objects."""
+    df = load_forest_dataframe()
+    if df is None:
+        return jsonify({'error': 'Forest data not available'}), 500
+    
+    # Convert to records and ensure NaN becomes None for JSON serialization
+    records = json.loads(df.to_json(orient='records'))
+    return jsonify(records)
+
+
 if __name__ == '__main__':
     print("=" * 60)
     print("Starting LatviaOSM-Check Server")
@@ -231,16 +267,19 @@ if __name__ == '__main__':
     else:
         print("[OK] Legacy map available at /map")
     
-    print("\n[MAIN] Topic Selector at: http://localhost:5000")
-    print("[AVAILABLE TOPICS]")
+    print("\n[MAIN] Maps available:")
+    print("  - http://localhost:5000/lau1-map (Roads)")
+    print("  - http://localhost:5000/forest-map (Forests)")
+    print("\n[AVAILABLE TOPICS]")
     print("  [OK] Roads (OSM + 7 cities official data)")
+    print("  [OK] Forests (OSM + official forest statistics)")
     print("  [PENDING] Railways (Coming soon)")
     print("  [PENDING] Buildings (Coming soon)")
     print("  [PENDING] POIs - Hospitals, Restaurants (Coming soon)")
-    print("  [PENDING] Forests (Coming soon)")
     print("\n[API] Endpoints:")
     print("  - GET /api/geojson-data - OSM roads GeoJSON")
-    print("  - GET /api/csv-data - Get all municipality statistics")
+    print("  - GET /api/csv-data - Roads completeness statistics")
+    print("  - GET /api/forest-data - Forest completeness statistics")
     print("  - GET /api/hierarchy - Get geographic hierarchy")
     print("  - GET /api/municipality-data - Get GeoJSON for municipality\n")
     
