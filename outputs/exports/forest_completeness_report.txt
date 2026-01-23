@@ -1,0 +1,62 @@
+
+================================================================================
+FOREST LAND COMPLETENESS BY MUNICIPALITY (42 LAU1 Units)
+================================================================================
+
+Municipality         Type               OSM km┬▓ Official km┬▓   Complete   Features
+--------------------------------------------------------------------------------
+Aizkraukle           Municipality        275.13      1420.86     19.36%        904
+Al┼½ksne              Municipality        332.89      1134.46     29.34%      3,344
+Aug┼ídaugava          Municipality        475.64      1010.29     47.08%      7,161
+Balvi                Municipality        365.43      1336.75     27.34%        698
+Bauska               Municipality        407.66       869.26     46.90%      2,598
+C─ôsis                Municipality        406.61      1604.62     25.34%      2,665
+Daugavpils           City                 28.46          nan       nan%        954
+Dienvidkurzeme       Municipality        701.31      1776.02     39.49%      2,527
+Dobele               Municipality        232.21       545.61     42.56%      1,055
+Gulbene              Municipality        475.66      1121.52     42.41%        823
+Jelgava              Municipality        242.16       532.84     45.45%      1,531
+Jelgavas             City                 15.00          nan       nan%        255
+J─ôkabpils            Municipality        443.40      1683.63     26.34%      4,124
+J┼½rmalas             City                 27.96          nan       nan%        528
+Kr─üslava             Municipality        438.04       970.49     45.14%      1,965
+Kuld─½ga              Municipality        498.47      1489.93     33.46%      6,322
+Liep─üjas             City                 27.80          nan       nan%        194
+Limba┼╛i              Municipality        457.85      1540.32     29.72%        875
+Ludza                Municipality        387.03      1312.57     29.49%        637
+L─½v─üni               Municipality        176.75       286.47     61.70%        224
+Madona               Municipality        529.23      1735.31     30.50%      1,815
+M─ürupe               Municipality        106.36       162.42     65.48%      2,062
+Ogre                 Municipality        300.36      1028.02     29.22%      1,432
+Olaine               Municipality         71.84       222.08     32.35%      1,566
+Prei─╝i               Municipality        301.63       517.28     58.31%        540
+Ropa┼╛i               Municipality        118.90       379.19     31.36%      1,039
+R─ôzekne              Municipality        563.40      1106.60     50.91%      1,140
+R─ôzeknes             City                  2.08          nan       nan%         33
+R─½ga                 City                 28.99          nan       nan%      2,558
+Salaspils novads     Municipality         26.34        38.72     68.03%        698
+Saldus               Municipality        532.11      1102.06     48.28%      7,411
+Saulkrasti           Municipality         77.75       188.72     41.20%        523
+Sigulda              Municipality        213.85       596.89     35.83%      1,645
+Smiltene             Municipality        353.20      1081.92     32.65%      1,242
+Talsi                Municipality        363.83      1778.82     20.45%      1,440
+Tukums               Municipality        529.75      1206.18     43.92%      6,153
+Valka                Municipality        104.93       623.78     16.82%        239
+Valmiera             Municipality        495.53      1630.86     30.38%      2,953
+Varak─╝─üni            Municipality         59.33       122.34     48.50%         58
+Ventspils            City                364.76        15.22   2396.58%        967
+─Çda┼╛i                Municipality         59.90       156.90     38.18%        807
+─╢ekava               Municipality         69.12       269.55     25.64%      2,234
+--------------------------------------------------------------------------------
+
+OVERALL TOTALS                         11688.65     32598.50     35.86%     77,939
+
+================================================================================
+STATISTICS:
+  ΓÇó Average completeness: 103.77%
+  ΓÇó Median completeness: 37.00%
+  ΓÇó Min completeness: 16.82% (Valka)
+  ΓÇó Max completeness: 2396.58% (Ventspils)
+  ΓÇó Units with >50% completeness: 6/42
+  ΓÇó Units with <30% completeness: 11/42
+================================================================================

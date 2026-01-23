@@ -21,6 +21,9 @@ build/
 .DS_Store
 Thumbs.db
 
+# Logs
+*.log
+
 # Data files (keep only processed/exports)
 data/raw/*.pbf
 data/raw/*.osm.pbf

@@ -7,9 +7,16 @@ import geopandas as gpd
 from shapely import wkb
 from shapely.geometry import Polygon
 import pandas as pd
+import sys
+import io
+
+# Fix Windows encoding
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 print("=" * 60)
-print("Extracting Forests from OSM")
+print("Extracting Forest Land Areas from OSM")
+print("Including: forests, wetlands, scrub, heath, grassland")
 print("=" * 60)
 print()
 
@@ -29,11 +36,32 @@ class ForestHandler(osmium.SimpleHandler):
             
         tags = {tag.k: tag.v for tag in w.tags}
         
-        # Check if it's a forest/wood
+        # Check for all forest land types
+        forest_type = None
+        
+        # Forests and woods
         if 'landuse' in tags and tags['landuse'] == 'forest':
             forest_type = 'forest'
         elif 'natural' in tags and tags['natural'] == 'wood':
             forest_type = 'wood'
+        # Swamps and wetlands
+        elif 'natural' in tags and tags['natural'] == 'wetland':
+            forest_type = 'wetland'
+        # Scrub (common coots, shrubland)
+        elif 'natural' in tags and tags['natural'] == 'scrub':
+            forest_type = 'scrub'
+        # Heath
+        elif 'natural' in tags and tags['natural'] == 'heath':
+            forest_type = 'heath'
+        # Grassland within forest areas
+        elif 'natural' in tags and tags['natural'] == 'grassland':
+            forest_type = 'grassland'
+        # Meadow
+        elif 'landuse' in tags and tags['landuse'] == 'meadow':
+            forest_type = 'meadow'
+        # Clearings and bare rock
+        elif 'natural' in tags and tags['natural'] in ['bare_rock', 'scree', 'shingle']:
+            forest_type = tags['natural']
         else:
             return
         

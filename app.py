@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parent
 MAP_HTML = ROOT / 'outputs' / 'maps' / 'interactive_map.html'
 LAU1_MAP_HTML = ROOT / 'outputs' / 'maps' / 'interactive_map.html'  # LAU1 map with municipalities and cities
 FOREST_MAP_HTML = ROOT / 'outputs' / 'maps' / 'forest_completeness_map.html'  # Forest map
+COMBINED_MAP_HTML = ROOT / 'outputs' / 'maps' / 'combined_map.html'  # Combined roads & forests map
 GEOJSON_FILE = ROOT / 'outputs' / 'exports' / 'latvia_lau1.geojson'  # Updated to use LAU1 GeoJSON
 CSV_FILE = ROOT / 'outputs' / 'exports' / 'completeness_municipalities.csv'
 FOREST_CSV_FILE = ROOT / 'outputs' / 'exports' / 'completeness_forests.csv'
@@ -98,8 +99,8 @@ def build_hierarchy():
 
 @app.route('/')
 def index():
-    """Main page: redirect to LAU1 map."""
-    return redirect('/lau1-map')
+    """Main page: redirect to combined map."""
+    return redirect('/combined-map')
 
 
 @app.route('/map')
@@ -113,6 +114,17 @@ def map_view():
     return send_file(MAP_HTML, mimetype='text/html')
 
 
+
+
+@app.route('/combined-map')
+def combined_map():
+    """Interactive combined map with roads and forests toggle."""
+    if not COMBINED_MAP_HTML.exists():
+        return (
+            'Combined map not found. Run: python scripts/18_create_combined_map.py',
+            500,
+        )
+    return send_file(COMBINED_MAP_HTML, mimetype='text/html')
 
 
 @app.route('/forest-map')
@@ -268,8 +280,9 @@ if __name__ == '__main__':
         print("[OK] Legacy map available at /map")
     
     print("\n[MAIN] Maps available:")
-    print("  - http://localhost:5000/lau1-map (Roads)")
-    print("  - http://localhost:5000/forest-map (Forests)")
+    print("  - http://localhost:5000/combined-map (Roads & Forests Combined) ⭐")
+    print("  - http://localhost:5000/lau1-map (Roads Only)")
+    print("  - http://localhost:5000/forest-map (Forests Only)")
     print("\n[AVAILABLE TOPICS]")
     print("  [OK] Roads (OSM + 7 cities official data)")
     print("  [OK] Forests (OSM + official forest statistics)")
