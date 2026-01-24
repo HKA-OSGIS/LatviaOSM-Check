@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Calculate road completeness"""
 
 import geopandas as gpd
 import pandas as pd
+import sys
+import io
+
+# Fix encoding for Windows
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 print("=" * 60)
 print("Calculating Completeness")
@@ -10,19 +17,43 @@ print("=" * 60)
 print()
 
 print("1/4 Loading data...")
-roads = gpd.read_file('data/processed/roads_by_municipality.geojson')
+roads = gpd.read_file('data/processed/roads_by_novads.geojson')
 municipalities = gpd.read_file('data/processed/municipalities.geojson')
 official = pd.read_csv('data/raw/official_road_stats.csv')
 print("✓ Data loaded")
 
 print("\n2/4 Aggregating OSM roads by municipality...")
-osm_aggregated = roads.groupby('municipality_name').agg({
+osm_aggregated = roads.groupby('novads').agg({
     'length_km': 'sum',
     'osm_id': 'count'
 }).reset_index()
 osm_aggregated.columns = ['municipality_name', 'osm_road_km', 'num_segments']
 osm_aggregated['osm_road_km'] = osm_aggregated['osm_road_km'].round(2)
 print(f"✓ Aggregated for {len(osm_aggregated)} municipalities")
+
+# Normalize municipality names for matching
+def normalize_name(name):
+    """Add ' novads' suffix if not present and not a city"""
+    if pd.isna(name):
+        return name
+    name = str(name).strip()
+    # Cities and regions don't need 'novads' suffix
+    no_novads = ['Daugavpils', 'Jelgava', 'Jūrmala', 'Liepāja', 'Rēzekne', 'Ventspils', 'Valmiera', 'Rīga',
+                 'Latvija', 'Rīgas', 'Vidzemes', 'Kurzemes', 'Zemgales', 'Latgales']
+    if name in no_novads:
+        return name
+    # If it's a possessive form (ending in 's'), add 'novads'
+    if name.endswith('s') and name not in no_novads:
+        # Remove the 's' and add 'novads'
+        # e.g., 'Jelgavas' -> 'Jelgavas novads'
+        return f"{name} novads"
+    # Otherwise just add 'novads'
+    if not name.endswith(' novads'):
+        return f"{name} novads"
+    return name
+
+osm_aggregated['municipality_name'] = osm_aggregated['municipality_name'].apply(normalize_name)
+print(f"✓ Normalized municipality names")
 
 print("\n3/4 Calculating completeness...")
 completeness = pd.merge(
@@ -73,6 +104,9 @@ print("✓ Saved results")
 print("\n" + "=" * 60)
 print("Summary:")
 print(completeness['category'].value_counts().to_string())
+print("\nTop 10 municipalities by completeness:")
+matched = completeness[completeness['completeness_pct'].notna()].sort_values('completeness_pct', ascending=False)
+print(matched[['municipality_name', 'osm_road_km', 'road_length_km', 'completeness_pct']].head(10).to_string(index=False))
 print("\n" + "=" * 60)
 print("✓ Completeness Analysis Complete!")
 print("=" * 60)

@@ -1,63 +1,126 @@
 # LatviaOSM-Check
 
-A professional tool for analyzing OpenStreetMap (OSM) road completeness in Latvia by comparing OSM data with official municipal road statistics.
+A professional tool for analyzing OpenStreetMap (OSM) completeness in Latvia by comparing OSM data with official government statistics for roads, forests, and libraries.
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com/)
 [![GeoPandas](https://img.shields.io/badge/GeoPandas-Latest-orange.svg)](https://geopandas.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Documentation](#documentation)
+- [Key Features](#key-features)
+- [Quick Start](#quick-start)
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
 
 ## Overview
 
-This project compares OpenStreetMap road data against official government statistics for 36 Latvian novads (municipalities), providing:
+LatviaOSM-Check is a comprehensive geospatial analysis tool that evaluates OpenStreetMap data quality across Latvia by comparing OSM features with official government statistics. The tool provides:
 
-- **✅ Completeness Analysis**: Calculate what percentage of official roads are mapped in OSM
-- **🗺️ Interactive Mapping**: Visualize completeness on a web-based map with color-coded regions
-- **📊 Data Quality Reports**: Identify mapping gaps and priorities
-- **🔌 RESTful API**: Access data programmatically via JSON endpoints
-- **🎯 100% Data Matching**: Advanced fuzzy matching handles Latvian language variations
+- **✅ Multi-Feature Analysis**: Roads, forests, and libraries completeness metrics
+- **🗺️ Interactive Mapping**: Web-based visualization with color-coded completeness indicators
+- **📊 Quality Reports**: Identify mapping gaps and prioritize areas for improvement
+- **🔌 RESTful API**: Programmatic access to all data via JSON endpoints
+- **🎯 Advanced Matching**: Fuzzy name matching handles Latvian language variations
+- **🌳 Environmental Data**: Forest coverage analysis
+- **📚 Infrastructure Tracking**: Library and public amenity mapping status
+
+## Documentation
+
+📖 **[Complete Documentation Index](docs/README.md)** - Start here to find the right documentation for your needs
+
+### Quick Links
+
+| For Users | For Developers | Project Info |
+|-----------|----------------|--------------|
+| [Installation Guide](docs/INSTALLATION.md) | [Development Guide](docs/DEVELOPMENT.md) | [Changelog](CHANGELOG.md) |
+| [Usage Guide](docs/USAGE.md) | [Project Structure](docs/PROJECT_STRUCTURE.md) | [Contributors](CONTRIBUTORS.md) |
+| [Quick Start](docs/QUICK_GUIDE.md) | [Contributing](CONTRIBUTING.md) | [License](LICENSE) |
+| [API Reference](docs/API.md) | [Implementation Details](docs/IMPLEMENTATION_SUMMARY_NOVADS.md) | [Final Status](docs/FINAL_STATUS.md) |
 
 ## Key Features
 
-### 📍 **36 Latvian Novads (Municipalities)**
-- Official road data from government statistics (TRS020)
-- OSM road data from Latvia extract (456,381+ road segments)
-- Completeness calculated for each municipality
-- Advanced fuzzy name matching (80% threshold)
+### 📍 **Comprehensive Geographic Coverage**
+- **43 Administrative Divisions**: All Latvian municipalities (novads) and cities
+- **Multi-Feature Analysis**: Roads, forests, libraries
+- Official data from government statistics (CSB, TRS020)
+- OSM data from Latvia extract (456,381+ road segments)
+- Advanced fuzzy name matching (80% threshold) for Latvian language
 
-### 📈 **Data Quality**
+### 📈 **Data Quality Metrics**
+
+#### Roads
 - **Total OSM Roads**: 114,442 km
 - **Total Official Roads**: 56,138 km  
-- **Overall Completeness**: 203.9% (OSM has MORE data than official statistics)
-- **Name Matching**: 100% (36/36 novads)
-- **Zero Missing Values**: All municipalities have valid data
+- **Overall Completeness**: 203.9% (OSM exceeds official statistics)
+
+#### Forests
+- **OSM Forest Features**: Tracked across all municipalities
+- **Comparison with Official Data**: Forest inventory statistics
+- **Coverage Analysis**: Identify unmapped forest areas
+
+#### Libraries
+- **712 Total Libraries** (Official count)
+- **Municipal and City Libraries**: Public library network tracking
+- **Completeness by Region**: Identify library mapping gaps
 
 ### 🎨 **Interactive Visualization**
-- Color-coded municipalities: Green (≥90%), Yellow (70-90%), Orange (50-70%), Red (<50%)
-- Detailed popups with statistics per municipality
-- Flask-based responsive web interface
-- GeoJSON data layers with Leaflet.js
+- **Hierarchical Selector**: Country → Region → Municipality → Feature Type
+- **Multi-Layer Maps**: Roads, forests, libraries, and combined views
+- **Color-Coded Completeness**: 
+  - 🟢 Green (≥90%) - Excellent
+  - 🟡 Yellow (70-90%) - Good
+  - 🟠 Orange (50-70%) - Fair
+  - 🔴 Red (<50%) - Needs improvement
+- **Detailed Popups**: Click any area for detailed statistics
+- **Flask-Based Interface**: Responsive, modern web design
+- **GeoJSON Data Layers**: Leaflet.js powered mapping
+
+### 🔧 **Developer-Friendly**
+- **RESTful API**: JSON endpoints for all data
+- **Multiple Export Formats**: GeoJSON, CSV, Shapefile
+- **Python SDK**: Easy integration with GeoPandas workflows
+- **Extensible Architecture**: Add new feature types easily
 
 ## Quick Start
-
-### Prerequisites
-- Python 3.8 or higher
-- 2 GB free disk space
 
 ### Installation
 
 ```powershell
-# 1. Clone or download the repository
-git clone <repository-url>
+# Windows PowerShell
+git clone https://github.com/<your-org>/latvia_osm_project.git
 cd latvia_osm_project
-
-# 2. Run setup (creates virtual environment and installs dependencies)
 .\setup.ps1
-
-# 3. Start the application
 .\run.ps1
-
-# 4. Open browser to http://localhost:5000
 ```
+
+```bash
+# Linux/macOS
+git clone https://github.com/<your-org>/latvia_osm_project.git
+cd latvia_osm_project
+chmod +x setup.sh run.sh
+./setup.sh
+./run.sh
+```
+
+Then open your browser to: **http://localhost:5000**
+
+### What You Get
+
+- **Roads Analysis**: `/roads` - Road network completeness
+- **Forests Analysis**: `/forests` - Forest mapping coverage  
+- **Libraries Analysis**: `/libraries` - Public library locations
+- **Combined View**: `/combined` - Multi-layer visualization
+- **API Access**: `/api/*` - Programmatic data access
+
+For detailed installation instructions, see **[Installation Guide](docs/INSTALLATION.md)**.
 
 ## Project Structure
 
@@ -396,9 +459,81 @@ Aizkraukle, Alūksne, Balvi, Bauska, Cēsis, Dobele, Daugavpils, Dundaga, Engure
 - [ ] Multi-language support
 - [ ] Database backend integration
 
-## Contributors
+## Contributing
 
-- Developed for HKA-OSGIS (Hochschule Karlsruhe - University of Applied Sciences, OSGeo Initiative)
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for:
+
+- 🐛 Reporting bugs
+- 💡 Suggesting features
+- 🔧 Submitting code
+- 📝 Improving documentation
+- 🧪 Writing tests
+
+See also:
+- [Contributors](CONTRIBUTORS.md) - List of project contributors
+- [Development Guide](docs/DEVELOPMENT.md) - Technical details for developers
+- [Code of Conduct](CODE_OF_CONDUCT.md) - Community guidelines
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### Data Licenses
+
+- **OpenStreetMap Data**: © OpenStreetMap contributors, [ODbL](https://www.openstreetmap.org/copyright)
+- **Official Statistics**: © Central Statistical Bureau of Latvia (CSB)
+- **Municipality Boundaries**: Open government data
+
+## Support
+
+### Getting Help
+
+- 📖 Check the [Documentation Index](docs/README.md)
+- 🔍 Search [existing issues](https://github.com/<your-org>/latvia_osm_project/issues)
+- 💬 Start a [discussion](https://github.com/<your-org>/latvia_osm_project/discussions)
+- 📧 Contact maintainers (see [CONTRIBUTORS.md](CONTRIBUTORS.md))
+
+### Reporting Issues
+
+Found a bug? Please create an issue with:
+- Clear description of the problem
+- Steps to reproduce
+- Expected vs actual behavior
+- System information (OS, Python version)
+- Screenshots if applicable
+
+### Feature Requests
+
+Have an idea? We'd love to hear it! Create an issue describing:
+- The feature you'd like
+- Why it would be useful
+- Any implementation ideas
+
+## Acknowledgments
+
+- **OpenStreetMap Community** - For creating and maintaining the OSM dataset
+- **Central Statistical Bureau of Latvia** - For official statistics
+- **GeoPandas Team** - For excellent geospatial tools
+- **Flask Team** - For the web framework
+- All contributors who have helped improve this project
+
+## Citation
+
+If you use this tool in your research or project, please cite:
+
+```bibtex
+@software{latvia_osm_check,
+  title = {LatviaOSM-Check: OpenStreetMap Completeness Analysis Tool},
+  author = {LatviaOSM-Check Contributors},
+  year = {2026},
+  url = {https://github.com/<your-org>/latvia_osm_project},
+  version = {2.1.0}
+}
+```
+
+---
+
+**Made with ❤️ for the OpenStreetMap and Open Source GIS communities**
 
 ## License
 

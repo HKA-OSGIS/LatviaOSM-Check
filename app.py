@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Flask web application for OSM road completeness analysis with hierarchical selector.
+"""Flask web application for OSM completeness analysis (Roads, Forests, Libraries) with interactive maps.
 
-Provides both a traditional map view and a new hierarchical geographic selector
-for filtering by country, region, municipality, and feature type.
+Provides interactive map views with hierarchical geographic filtering and comprehensive
+comparison of OpenStreetMap data against official government statistics.
 """
 
 from flask import Flask, send_file, jsonify, request, render_template, redirect
@@ -16,25 +16,29 @@ ROOT = Path(__file__).resolve().parent
 MAP_HTML = ROOT / 'outputs' / 'maps' / 'interactive_map.html'
 LAU1_MAP_HTML = ROOT / 'outputs' / 'maps' / 'interactive_map.html'  # LAU1 map with municipalities and cities
 FOREST_MAP_HTML = ROOT / 'outputs' / 'maps' / 'forest_completeness_map.html'  # Forest map
-COMBINED_MAP_HTML = ROOT / 'outputs' / 'maps' / 'combined_map.html'  # Combined roads & forests map
+LIBRARY_MAP_HTML = ROOT / 'outputs' / 'maps' / 'library_completeness_map.html'  # Library map
+COMBINED_MAP_HTML = ROOT / 'outputs' / 'maps' / 'combined_map.html'  # Combined roads, forests & libraries map
 GEOJSON_FILE = ROOT / 'outputs' / 'exports' / 'latvia_lau1.geojson'  # Updated to use LAU1 GeoJSON
 CSV_FILE = ROOT / 'outputs' / 'exports' / 'completeness_municipalities.csv'
 FOREST_CSV_FILE = ROOT / 'outputs' / 'exports' / 'completeness_forests.csv'
+LIBRARY_CSV_FILE = ROOT / 'outputs' / 'exports' / 'completeness_libraries.csv'
 
 # Cache for GeoJSON data and hierarchy
 _geojson_cache = None
 _hierarchy_cache = None
 _dataframe_cache = None
 _forest_dataframe_cache = None
+_library_dataframe_cache = None
 
 
 def clear_cache():
     """Clear all caches to force reload."""
-    global _geojson_cache, _hierarchy_cache, _dataframe_cache, _forest_dataframe_cache
+    global _geojson_cache, _hierarchy_cache, _dataframe_cache, _forest_dataframe_cache, _library_dataframe_cache
     _geojson_cache = None
     _hierarchy_cache = None
     _dataframe_cache = None
     _forest_dataframe_cache = None
+    _library_dataframe_cache = None
 
 
 def load_geojson():
@@ -63,6 +67,15 @@ def load_forest_dataframe():
         if FOREST_CSV_FILE.exists():
             _forest_dataframe_cache = pd.read_csv(FOREST_CSV_FILE, encoding='utf-8')
     return _forest_dataframe_cache
+
+
+def load_library_dataframe():
+    """Load and cache library CSV data."""
+    global _library_dataframe_cache
+    if _library_dataframe_cache is None:
+        if LIBRARY_CSV_FILE.exists():
+            _library_dataframe_cache = pd.read_csv(LIBRARY_CSV_FILE, encoding='utf-8')
+    return _library_dataframe_cache
 
 
 def build_hierarchy():
@@ -136,6 +149,19 @@ def forest_map():
             500,
         )
     return send_file(FOREST_MAP_HTML, mimetype='text/html')
+
+
+@app.route('/library-map')
+def library_map():
+    """Interactive library completeness map."""
+    if not LIBRARY_MAP_HTML.exists():
+        return (
+            'Library map not found. Run: python scripts/27_create_library_map.py',
+            500,
+        )
+    return send_file(LIBRARY_MAP_HTML, mimetype='text/html')
+
+
 @app.route('/lau1-map')
 def lau1_map():
     """Interactive LAU1 map view with municipalities and cities."""
@@ -280,12 +306,14 @@ if __name__ == '__main__':
         print("[OK] Legacy map available at /map")
     
     print("\n[MAIN] Maps available:")
-    print("  - http://localhost:5000/combined-map (Roads & Forests Combined) ⭐")
+    print("  - http://localhost:5000/combined-map (Roads, Forests & Libraries Combined) ⭐")
     print("  - http://localhost:5000/lau1-map (Roads Only)")
     print("  - http://localhost:5000/forest-map (Forests Only)")
+    print("  - http://localhost:5000/library-map (Libraries Only)")
     print("\n[AVAILABLE TOPICS]")
     print("  [OK] Roads (OSM + 7 cities official data)")
     print("  [OK] Forests (OSM + official forest statistics)")
+    print("  [OK] Libraries (OSM + official library statistics)")
     print("  [PENDING] Railways (Coming soon)")
     print("  [PENDING] Buildings (Coming soon)")
     print("  [PENDING] POIs - Hospitals, Restaurants (Coming soon)")

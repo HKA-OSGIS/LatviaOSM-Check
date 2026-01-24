@@ -5,6 +5,68 @@ All notable changes to LatviaOSM-Check will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Planned
+- Automated data update pipeline
+- Historical trend analysis
+- Comparison with neighboring countries
+- Mobile-responsive interface improvements
+- Docker deployment support
+
+## [2.1.1] - 2026-01-24
+
+### Enhanced
+- **Combined Map Update**
+  - Added Library layer to combined map visualization
+  - Libraries now default as primary view in combined map
+  - Toggle between Roads, Forests, and Libraries layers
+  - Improved map title and descriptions
+  - Dynamic legend updates for each layer
+
+## [2.1.0] - 2026-01-24
+
+### Added
+- **Comprehensive Documentation Suite**
+  - [Installation Guide](docs/INSTALLATION.md) - Multi-platform setup instructions
+  - [Usage Guide](docs/USAGE.md) - Complete user manual with examples
+  - [API Documentation](docs/API.md) - Full REST API reference
+  - [Development Guide](docs/DEVELOPMENT.md) - Developer handbook
+- **Forest Analysis Module**
+  - Forest feature extraction from OSM
+  - Comparison with official forest statistics
+  - Forest completeness visualization
+  - Forest-specific API endpoints
+- **Library Analysis Module**
+  - Public library mapping analysis (712 libraries tracked)
+  - Municipality-level library statistics
+  - Library completeness metrics
+  - Library-specific API endpoints
+- **Combined Visualization**
+  - Multi-layer map showing roads and forests together
+  - Hierarchical geographic selector
+  - Toggle between feature types
+- **Enhanced API**
+  - `/api/forest-data` - Forest statistics endpoint
+  - `/api/library-data` - Library statistics endpoint
+  - `/api/hierarchy` - Geographic hierarchy structure
+  - `/api/statistics` - Aggregate statistics with filtering
+- **Pipeline Scripts**
+  - `run_forest_pipeline.ps1` - Automated forest analysis
+  - `run_library_pipeline.ps1` - Automated library analysis
+  - Individual extraction scripts for each feature type
+
+### Changed
+- Updated README with links to new documentation
+- Enhanced project structure documentation
+- Improved API response formats
+- Extended GeoJSON properties with additional metadata
+
+### Fixed
+- Cache directory cleanup (__pycache__ removal)
+- Debug script cleanup
+- Improved error handling in API endpoints
+
 ## [2.0.0] - 2026-01-18
 
 ### Added
@@ -37,6 +99,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-12-18
 
 ### Added
+- Initial release
 - Fuzzy name matching algorithm (80% threshold)
 - Support for all 36 Latvian novads
 - Advanced genitive case handling for Latvian names
@@ -44,10 +107,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Interactive web map with Leaflet.js
 - Flask RESTful API
 - Color-coded completeness visualization
+- Road completeness analysis
+- Municipality boundary processing
 
 ### Fixed
 - Critical data integrity issue (6 novads showing 0.0 km)
 - Language mismatch between GeoJSON and official statistics
+- CRS projection inconsistencies
+- Geometry validation errors
 - Wrong administrative division (587 parishes → 36 novads)
 - Column header inconsistencies
 

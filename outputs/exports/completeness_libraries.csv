@@ -1,0 +1,45 @@
+municipality_name,Area_Type,osm_library_count,official_library_count,completeness_%
+Jūrmala,City,7,5,140.0
+Jelgava,City,5,4,125.0
+Rīga,City,33,28,117.86
+Kuldīgas novads,Municipality,20,20,100.0
+Saulkrastu novads,Municipality,3,3,100.0
+Ādažu novads,Municipality,2,2,100.0
+Ropažu novads,Municipality,6,7,85.71
+Ķekavas novads,Municipality,3,5,60.0
+Līvānu novads,Municipality,4,7,57.14
+Liepāja,City,4,7,57.14
+Daugavpils,City,4,8,50.0
+Rēzekne,City,2,4,50.0
+Mārupes novads,Municipality,2,4,50.0
+Siguldas novads,Municipality,5,11,45.45
+Limbažu novads,Municipality,9,20,45.0
+Cēsu novads,Municipality,11,25,44.0
+Alūksnes novads,Municipality,7,17,41.18
+Madonas novads,Municipality,9,22,40.91
+Aizkraukles novads,Municipality,9,23,39.13
+Ogres novads,Municipality,8,22,36.36
+Tukuma novads,Municipality,9,25,36.0
+Madonas novads,Municipality,9,25,36.0
+Salaspils novads,Municipality,1,3,33.33
+Ventspils novads,Municipality,4,13,30.77
+Bauskas novads,Municipality,11,36,30.56
+Jēkabpils novads,Municipality,8,28,28.57
+Valmieras novads,Municipality,9,32,28.12
+Dienvidkurzemes novads,Municipality,9,33,27.27
+Talsu novads,Municipality,8,31,25.81
+Rēzeknes novads,Municipality,7,29,24.14
+Gulbenes novads,Municipality,4,18,22.22
+Ludzas novads,Municipality,6,28,21.43
+Smiltenes novads,Municipality,3,14,21.43
+Augšdaugavas novads,Municipality,5,28,17.86
+Valkas novads,Municipality,1,6,16.67
+Preiļu novads,Municipality,2,18,11.11
+Saldus novads,Municipality,2,21,9.52
+Dobeles novads,Municipality,2,21,9.52
+Krāslavas novads,Municipality,2,24,8.33
+Balvu novads,Municipality,2,24,8.33
+Jelgavas novads,Municipality,2,25,8.0
+Ventspils,City,0,5,0.0
+Olaines novads,Municipality,0,3,0.0
+Varakļānu novads,Municipality,0,3,0.0
