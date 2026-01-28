@@ -1,102 +1,153 @@
 # Code of Conduct
 
-## Our Commitment
+## Our Pledge
 
-We are committed to providing a welcoming and inspiring community for all. We expect all participants in our community to uphold this code of conduct.
+We are committed to providing a welcoming and inclusive environment for all contributors to the LatviaOSM-Check project, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, sexual identity and orientation, or socioeconomic status.
 
 ## Our Standards
 
 Examples of behavior that contributes to creating a positive environment include:
 
-- **Be Respectful**: Treat all community members with respect and dignity
-- **Be Inclusive**: Welcome and support people of all backgrounds and identities
-- **Be Collaborative**: Work together towards common goals
-- **Be Professional**: Maintain professional communication in all interactions
-- **Be Patient**: Understand that everyone has different experience levels
-- **Be Understanding**: Listen to different viewpoints and perspectives
-- **Be Constructive**: Provide helpful feedback and criticism
-- **Be Honest**: Be truthful and transparent in your interactions
-
-## Unacceptable Behavior
+- **Being respectful and inclusive** - Use welcoming and inclusive language
+- **Being constructive** - Provide constructive feedback and criticism
+- **Being helpful** - Help others learn and grow
+- **Being open-minded** - Accept differing opinions and viewpoints
+- **Being responsible** - Take responsibility for your actions
+- **Being professional** - Maintain professionalism in all interactions
+- **Respecting privacy** - Don't share others' personal information without consent
+- **Giving credit** - Acknowledge others' contributions and ideas
 
 Examples of unacceptable behavior include:
 
-- Harassment, intimidation, or discrimination of any kind
-- Offensive comments related to gender, gender identity, sexual orientation, disability, mental illness, neuro(a)typicality, physical appearance, body size, race, age, regional discrimination, or religion
-- Unwelcome comments regarding a person's lifestyle choices and practices
-- Deliberate misgendering or use of "dead" or rejected names
-- Gratuitous or off-topic sexual images or behavior in spaces where they're not appropriate
-- Physical contact and simulated physical contact (eg, textual descriptions like "hug" or "backrub") without consent or after a request to stop
-- Threats of violence, both physical and psychological
-- Incitement of violence or violent crime, even hypothetically
-- Deliberate intimidation
-- Stalking or following
-- Harassing photography or recording, including logging online activity for harassment purposes
-- Sustained disruption of discussion
-- Unwelcome sexual attention
-- Pattern of inappropriate social contact, such as requesting/assuming inappropriate levels of intimacy with others
-- Continued one-on-one communication after requests to cease
-- Deliberate "outing" of any aspect of someone's identity without their consent except as necessary to protect vulnerable people from intentional abuse
-- Publication of non-consensual intimate images
-- Jokes that resemble the above, such as "hipster racism," still count as harassment
+- **Harassment or discrimination** - Based on any protected characteristic
+- **Intimidation** - Threatening language or behavior
+- **Bullying** - Repeated harmful behavior toward others
+- **Trolling** - Deliberately provocative behavior intended to upset others
+- **Hate speech** - Derogatory language targeting protected groups
+- **Unwanted sexual advances** - Any form of sexual harassment
+- **Doxxing** - Publishing private information without consent
+- **Spam** - Unsolicited promotional content or repetitive messages
+- **Abuse of community tools** - Misuse of issue tracking, comments, or other features
 
 ## Enforcement
 
-Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
+### Reporting Violations
 
-Community leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate.
+If you witness or experience behavior that violates this Code of Conduct, please report it by:
+
+1. **Email**: Report directly to project maintainers
+2. **GitHub Issues**: Open a private security advisory
+3. **Direct Message**: Contact a project maintainer directly
+
+All reports will be:
+- ✅ Reviewed confidentially
+- ✅ Investigated promptly
+- ✅ Handled with sensitivity
+- ✅ Kept private (unless disclosure is necessary)
+
+### Investigation Process
+
+1. **Receipt**: Acknowledge receipt within 48 hours
+2. **Investigation**: Gather facts and perspectives from all involved
+3. **Review**: Evaluate the incident against this Code of Conduct
+4. **Decision**: Determine appropriate action
+5. **Communication**: Inform parties of outcome (may be limited for privacy)
+6. **Documentation**: Record for pattern identification
+
+### Possible Actions
+
+Violations may result in:
+
+1. **Warning** - First-time minor violations
+   - Private conversation with violator
+   - Clear explanation of violation
+   - Request to modify behavior
+
+2. **Temporary Suspension** - Repeated or moderate violations
+   - Temporary removal from community platforms
+   - Duration: 1-7 days depending on severity
+   - Review period before reinstatement
+
+3. **Permanent Removal** - Serious or repeated violations
+   - Permanent ban from community platforms
+   - No further participation in project
+   - Removal of content (if appropriate)
 
 ## Scope
 
-This Code of Conduct applies within all community spaces (including but not limited to repositories, discussions, issues, pull requests, wiki, chat channels, etc.), and also applies when an individual is officially representing the community in public spaces.
+This Code of Conduct applies in all community spaces, including:
 
-## Reporting
+- 💻 GitHub repositories and discussions
+- 💬 Issue comments and pull request discussions
+- 📧 Project mailing lists and emails
+- 🌐 Official project website and social media
+- 🤝 Project events and meetings
+- 📱 Any space where project-related discussions occur
+- 👥 One-on-one interactions between community members
 
-If you experience or witness unacceptable behavior, or have any other concerns, please report it by contacting the project maintainers at:
+## Expected Behavior
 
-- **GitHub Issues**: Open a private security advisory (for serious issues)
-- **Email**: Contact information in [CONTRIBUTORS.md](CONTRIBUTORS.md)
-- **Discussions**: Start a discussion with maintainers
+All community members are expected to:
 
-When reporting, please include:
-- Your contact information
-- Description of the incident
-- Names of those involved
-- Context and background
-- Any relevant links or evidence
+- 💡 **Be respectful** of diverse viewpoints and experiences
+- 🎯 **Focus on constructive dialogue** rather than personal attacks
+- 🤝 **Be collaborative** in working toward shared goals
+- 📚 **Be patient** with others as they learn and grow
+- 🛡️ **Protect others' dignity** and respect their boundaries
+- ♿ **Be inclusive** and consider accessibility
+- 🔄 **Assume good intent** while addressing impact
+- ✋ **Speak up** if you witness violations
 
-All reports will be reviewed and investigated promptly. The project team will maintain confidentiality with regard to the reporter of an incident.
+## Consequences of Violations
 
-## Consequences
+Community members who violate this Code of Conduct may face consequences up to and including:
 
-Depending on the severity and nature of the violation, consequences may include:
+- Removal of comments or posts
+- Temporary or permanent ban from community spaces
+- Removal from project roles or positions
+- Exclusion from project events
+- Public acknowledgment of violation (in serious cases)
 
-1. **Warning**: A private conversation about the problematic behavior
-2. **Temporary Suspension**: Temporary removal from community spaces
-3. **Permanent Ban**: Permanent removal from the community
+## Attribution and Changes
 
-## Appeal Process
+This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.0, available at https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
 
-If you believe you have been unfairly treated or wish to appeal a decision, you may request a review by:
+### Changes to This Code of Conduct
 
-1. Submitting a written appeal to the project maintainers
-2. Providing additional context or evidence
-3. Requesting a meeting to discuss the matter
+The project maintainers reserve the right to update this Code of Conduct. Changes will be:
+- ✅ Posted publicly with advance notice
+- ✅ Announced in project communications
+- ✅ Effective after reasonable notice period (minimum 14 days)
 
-Appeals will be reviewed by project leadership within 30 days.
+## Support
 
-## Acknowledgments
+If you're experiencing difficulty in the community or need support:
 
-This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 2.1, available at https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
+- 💬 Reach out to a project maintainer
+- 🤝 Ask for help or mediation
+- 📚 Review our community resources
+- 👥 Connect with trusted community members
+
+## Commitment to Improvement
+
+We are committed to:
+
+- 🔄 Continuously improving this Code of Conduct
+- 📊 Gathering feedback from community members
+- 🎓 Providing education and resources
+- 🔍 Being transparent about enforcement
+- ✨ Creating an increasingly welcoming community
 
 ## Questions?
 
-If you have questions about this Code of Conduct, please:
-
-- Review the [Contributing Guidelines](CONTRIBUTING.md)
-- Check [Discussions](https://github.com/<your-org>/latvia_osm_project/discussions)
-- Contact project maintainers (see [CONTRIBUTORS.md](CONTRIBUTORS.md))
+If you have questions about this Code of Conduct, please contact the project maintainers.
 
 ---
 
-**Last updated**: January 24, 2026
+**Last Updated**: January 28, 2026
+
+**Effective Date**: January 28, 2026
+
+**Version**: 1.0
+
+**Status**: ✅ Active
